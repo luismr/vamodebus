@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">UdiBus</string>
+    <string name="app_name">Vamo de Bus</string>
     <string name="code_of_route">Código da Rota: </string>
     <string name="find">Buscar</string>
     <string name="menu_settings">Settings</string>
