@@ -2,7 +2,9 @@ package br.com.vamodebus.activitys;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
+import android.os.AsyncTask;
 import br.com.vamodebus.R;
 
 import br.com.vamodebus.adapters.WhereTheBusIsAdapter;
@@ -43,7 +45,7 @@ public class WhereTheBusIsActivity extends ListActivity {
 				final Bundle extras = getIntent().getExtras();
 
 				List<Pair<String, Boolean>> listPair = findBusStop(
-						extras.getString("ROUTE"), extras.getString("IDROUTE"));
+                        extras.getString("ROUTE"), extras.getString("IDROUTE"));
 				carregaTela(listPair);
 				aux_msg = new Message();
 				aux_msg.what = MSG_FINALIZAR;
@@ -63,20 +65,30 @@ public class WhereTheBusIsActivity extends ListActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.where_the_bus_is);
 		final ProgressDialog pb = new ProgressDialog(WhereTheBusIsActivity.this);
-		pb.setTitle("Aguarde...");
-		pb.setMessage("Buscando Informações");
-		pb.show();
+		///pb.setTitle("Aguarde...");
+		//pb.setMessage("Buscando Informações");
+		//pb.show();
+        final Bundle extras = getIntent().getExtras();
+        AsyncTask asyncTask =  new BusList().execute(extras.getString("ROUTE"), extras.getString("IDROUTE"));
+        try {
+            List<Pair<String, Boolean>> l = (List<Pair<String, Boolean>>) asyncTask.get();
+            carregaTela(l);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				Message msg = new Message();
-				msg.what = MSG_INICIAR;
-				handler.sendMessage(msg);
-				pb.dismiss();
-			};
-		}).start();
+//		new Thread(new Runnable() {
+//
+//			@Override
+//			public void run() {
+//				Message msg = new Message();
+//				msg.what = MSG_INICIAR;
+//				handler.sendMessage(msg);
+//				pb.dismiss();
+//			};
+//		}).start();
 		
 	}
 
@@ -104,6 +116,33 @@ public class WhereTheBusIsActivity extends ListActivity {
     protected void onStop() {
     	super.onStop();
     	EasyTracker.getInstance().activityStop(this);
+    }
+
+    private class BusList extends AsyncTask<String, Void, List>{
+
+        ProgressDialog dialog;
+
+        @Override
+        protected void onPreExecute() {
+            dialog = new ProgressDialog(WhereTheBusIsActivity.this);
+            dialog.setTitle("Calculating...");
+            dialog.setMessage("Please wait...");
+            dialog.setIndeterminate(true);
+            dialog.show();
+        }
+
+        @Override
+        protected List doInBackground(String... strings) {
+            List<Pair<String, Boolean>> listPair = new ParserHtml(
+                    "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+                            + strings[0] + "&route=" + strings[1]).mapTable();
+            return new ArrayList<Pair<String, Boolean>>(listPair);
+        }
+
+        @Override
+        protected void onPostExecute(List list) {
+            dialog.dismiss();
+        }
     }
 
 }
