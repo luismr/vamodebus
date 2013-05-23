@@ -4,7 +4,7 @@
     <string name="code_of_route">Código da Rota: </string>
     <string name="find">Buscar</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">UdiBus</string>
+    <string name="title_activity_main">Vamo de Bus!</string>
     <string name="not_found">Dados indisponíveis</string>
 
 </resources>
