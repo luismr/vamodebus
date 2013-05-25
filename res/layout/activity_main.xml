@@ -1,5 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/ScrollView01"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
@@ -22,7 +26,6 @@
         android:padding="@dimen/padding_medium"
         android:layout_margin="5dp"
         android:text="@string/code_of_route"
-        tools:context=".MainActivity"
         android:layout_below="@id/image_yelow_bus" />
 
     <EditText
@@ -43,3 +46,5 @@
     </Button>
 
 </RelativeLayout>
+
+    </ScrollView>
