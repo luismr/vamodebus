@@ -27,7 +27,7 @@ public class ParserHtml {
 		try {
 			
 			InputStream in = getInputStreamFromWeb();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(in,"ISO-8859-1"));
 			StringBuilder strBuilder = new StringBuilder();
 			String line;
 			while((line = reader.readLine()) != null)
@@ -54,8 +54,19 @@ public class ParserHtml {
 	public List<Pair<String, Boolean>> mapTable() {
 		List<Pair<String, Boolean>> listPair = new ArrayList<Pair<String,Boolean>>();
 		try {
-			InputStream in = getInputStreamFromWeb();
-			Document document = Jsoup.parse(in,"ISO-8859-1","");
+
+            InputStream in = getInputStreamFromWeb();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in,"ISO-8859-1"));
+            StringBuilder strBuilder = new StringBuilder();
+            String line;
+            while((line = reader.readLine()) != null)
+            {
+                strBuilder.append(line);
+                //ISO-8859-1
+            }
+
+
+			Document document = Jsoup.parse(strBuilder.toString(),"ISO-8859-1");
 			Elements table = document.select("table[ID=table_synoptic]");
 			Elements trs = table.select("tr");
 			
