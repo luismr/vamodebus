@@ -14,17 +14,28 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" 
         android:debuggable="true">
-        <activity
-            android:name="br.com.vamodebus.activitys.MainActivity"
-            android:label="@string/title_activity_main" >
+
+        <activity android:name=".activitys.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="br.com.vamodebus.activitys.ListRouteActivity"></activity>
-        <activity android:name="br.com.vamodebus.activitys.WhereTheBusIsActivity"></activity>
+
+        <!--<activity
+                android:name="activitys.MainActivity"
+                android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>-->
+
+        <activity android:name=".activitys.MainActivity"></activity>
+        <activity android:name=".activitys.ListRouteActivity"></activity>
+        <activity android:name=".activitys.WhereTheBusIsActivity"></activity>
     </application>
 
 </manifest>
