@@ -12,7 +12,6 @@ import br.com.vamodebus.leitorhtml.ParserHtml;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Pair;
@@ -20,10 +19,14 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class WhereTheBusIsActivity extends ListActivity {
+/**
+ * Created by Eduardo Silva Rosa on 31/05/2013.
+ * mail to: edus.silva.rosa@gmail.com
+ */
+public class WhereTheBusIsActivity extends BaseListActivity {
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.where_the_bus_is);

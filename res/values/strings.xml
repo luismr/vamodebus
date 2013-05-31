@@ -3,7 +3,7 @@
     <string name="app_name">Vamo de Bus</string>
     <string name="code_of_route">Código da Rota: </string>
     <string name="find">Buscar</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_about">Sobre</string>
     <string name="title_activity_main">Vamo de Bus!</string>
     <string name="not_found">Dados indisponíveis</string>
 

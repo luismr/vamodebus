@@ -14,6 +14,10 @@ import org.jsoup.select.Elements;
 
 import android.util.Pair;
 
+/**
+ * Created by Eduardo Silva Rosa on 31/05/2013.
+ * mail to: edus.silva.rosa@gmail.com
+ */
 public class ParserHtml {
 
 	public String url;

@@ -14,10 +14,14 @@ import br.com.vamodebus.adapters.MapRouteAdapter;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class ListRouteActivity extends ListActivity{
+/**
+ * Created by Eduardo Silva Rosa on 31/05/2013.
+ * mail to: edus.silva.rosa@gmail.com
+ */
+public class ListRouteActivity extends BaseListActivity{
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.list_routes);
