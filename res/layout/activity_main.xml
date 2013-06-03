@@ -34,7 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/label_code_of_route"
         android:inputType="text"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp"
+        android:hint="Ex:T131"
+        />
 
     <Button
         android:id="@+id/button_submit_code_of_route"
