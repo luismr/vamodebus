@@ -1,7 +1,7 @@
 package br.com.vamodebus.activitys;
 
-import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +20,8 @@ public class BaseListActivity extends ListActivity {
     @Override
     public boolean onMenuItemSelected(int featureId,MenuItem item) {
         if(item.getItemId() == R.id.menu_settings){
-            finish();
+            Intent intent = new Intent(getApplicationContext(),InfoActivity.class);
+            startActivity(intent);
         }
         return super.onMenuItemSelected(featureId, item);
     }

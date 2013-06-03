@@ -35,7 +35,7 @@
         android:layout_below="@id/label_code_of_route"
         android:inputType="text"
         android:layout_margin="5dp"
-        android:hint="Ex:T131"
+        android:hint="@string/rout_example"
         />
 
     <Button

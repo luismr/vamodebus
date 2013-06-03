@@ -27,6 +27,7 @@
         <activity android:name="br.com.vamodebus.activitys.WhereTheBusIsActivity"></activity>
         <activity android:name=".activitys.BaseActivity"/>
         <activity android:name=".activitys.BaseListActivity"/>
+        <activity android:name=".activitys.InfoActivity"/>
     </application>
 
 </manifest>
