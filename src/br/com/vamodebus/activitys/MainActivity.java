@@ -2,7 +2,6 @@ package br.com.vamodebus.activitys;
 
 import java.util.HashMap;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +16,11 @@ import br.com.vamodebus.leitorhtml.ParserHtml;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
-public class MainActivity extends Activity {
+/**
+ * Created by Eduardo Silva Rosa on 31/05/2013.
+ * mail to: edus.silva.rosa@gmail.com
+ */
+public class MainActivity extends BaseActivity {
 	
 
     @Override
@@ -75,11 +78,6 @@ public class MainActivity extends Activity {
 		Log.i("URL_CONEXAO", "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
 						+ str + "&btcode=Buscar&route=0");
 
-		HashMap<String, String> optionsMaped = parserHtml.mapOptions();
-		return optionsMaped;
+		return parserHtml.mapOptions();
 	}
-
-    
-
-    
 }

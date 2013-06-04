@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * Created by Eduardo Silva Rosa on 31/05/2013.
+ * mail to: edus.silva.rosa@gmail.com
+ */
 public class MapRouteAdapter extends BaseAdapter{
 	HashMap<String, String> optionsMaped;
 	private String[] mKeys;
