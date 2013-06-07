@@ -3,14 +3,17 @@ package br.com.vamodebus.activitys;
 import java.util.HashMap;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import br.com.vamodebus.R;
 import br.com.vamodebus.adapters.MapRouteAdapter;
+import br.com.vamodebus.leitorhtml.ParserHtml;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
@@ -39,17 +42,42 @@ public class ListRouteActivity extends BaseListActivity{
         listRoutes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View v, int position,long id) {
-				Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
+			public void onItemClick(AdapterView<?> parent, final View v, int position,long id) {
+/*				Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
 				intent.putExtra("ROUTE", extras.getString("ROUTE"));
 				intent.putExtra("IDROUTE", v.getTag().toString());
-				startActivity(intent);
+				startActivity(intent);*/
+
+                final ProgressDialog myDialog = ProgressDialog.show( ListRouteActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
+
+
+                        intent.putExtra("ROUTES", findRoutes(extras.getString("ROUTE"),v.getTag().toString()));
+                        startActivity(intent);
+                        myDialog.dismiss();
+                    }
+                }).start();
+
+
+
+
 			}
 
 		});
         
         
 	}
+
+    public String findRoutes(String route,String edCode) {
+        ParserHtml parserHtml = new ParserHtml(
+                "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+                        + route + "&route="+ edCode );
+        return parserHtml.getHtml();
+    }
 	
     @Override
     protected void onStart() {

@@ -20,13 +20,13 @@ import android.util.Pair;
  */
 public class ParserHtml {
 
-	public String url;
+	public static String url;
 
 	public ParserHtml(String url) {
 		this.url = url;
 	}
 	
-	public HashMap<String, String> mapOptions() {
+	public static HashMap<String, String> mapOptions() {
 		HashMap<String, String> optionsMaped = new HashMap<String, String>();
 		try {
 			
@@ -54,21 +54,28 @@ public class ParserHtml {
 		} 
 		return optionsMaped;
 	}
-	
-	public List<Pair<String, Boolean>> mapTable() {
-		List<Pair<String, Boolean>> listPair = new ArrayList<Pair<String,Boolean>>();
-		try {
 
+    public String getHtml(){
+        StringBuilder strBuilder = new StringBuilder();
+        try{
             InputStream in = getInputStreamFromWeb();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in,"ISO-8859-1"));
-            StringBuilder strBuilder = new StringBuilder();
             String line;
             while((line = reader.readLine()) != null)
             {
                 strBuilder.append(line);
                 //ISO-8859-1
             }
+                in.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return strBuilder.toString();
 
+    }
+	
+	public static List<Pair<String, Boolean>> mapTable(String strBuilder) {
+		List<Pair<String, Boolean>> listPair = new ArrayList<Pair<String,Boolean>>();
 
 			Document document = Jsoup.parse(strBuilder.toString(),"ISO-8859-1");
 			Elements table = document.select("table[ID=table_synoptic]");
@@ -88,24 +95,22 @@ public class ParserHtml {
 						
 				}
 			}
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
+
 		return listPair;
 	}
 	
-	public InputStream getInputStreamFromWeb() throws IOException{
-		URL url = new URL(this.url);
-		URLConnection conexao = url.openConnection();
+	public static InputStream getInputStreamFromWeb() throws IOException{
+		URL url1 = new URL(url);
+		URLConnection conexao = url1.openConnection();
 		conexao.setConnectTimeout(5 * 1000);
 		conexao.connect();
-		InputStream in = url.openStream();
+		InputStream in = url1.openStream();
 		return in;
 		
 	}
 	
-	public String convertTagsHTMLCaracteres(String htmlString) {
+	public static String convertTagsHTMLCaracteres(String htmlString) {
 
 		try {
 
