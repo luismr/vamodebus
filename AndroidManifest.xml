@@ -5,14 +5,14 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="13" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" 
+        android:theme="@style/AppTheme"
         android:debuggable="true">
 
         <activity android:name=".activitys.SplashActivity" >

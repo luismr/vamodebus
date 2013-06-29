@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.com.vamodebus</groupId>
+    <artifactId>VamoDeBus</artifactId>
+    <version>0.1</version>
+    <packaging>apk</packaging>
+    <name>VamoDeBus</name>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <sdk>
+                        <platform>15</platform>
+                    </sdk>
+                    <file>${project.build.directory}/${project.artifactId}-${project.version}-aligned.apk</file>
+                    <emulator>
+                        <avd>Android4.2.2</avd>
+                        <options>-snapshot 1 -scale 0.8</options>
+                    </emulator>
+                    <sign>
+                        <debug>false</debug>
+                    </sign>
+                    <zipalign>
+                        <verbose>true</verbose>
+                        <skip>false</skip>
+                    </zipalign>
+                    <deleteConflictingFiles>true</deleteConflictingFiles>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                </configuration>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                    <id>alignApk</id>
+                    <phase>install</phase>
+                    <goals>
+                        <goal>zipalign</goal>
+                    </goals>
+                </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jarsigner-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <id>sign</id>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keystore>${project.basedir}/key.store</keystore>
+                    <alias>ALIAS</alias>
+                    <storepass>PASSWORD</storepass>
+                    <keypass>PASSWORD</keypass>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>2.1.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+	        <groupId>org.jsoup</groupId>
+	        <artifactId>jsoup</artifactId>
+	        <version>1.7.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.android.analytics</groupId>
+            <artifactId>libGoogleAnalyticsV2</artifactId>
+            <version>2</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/libGoogleAnalyticsV2.jar</systemPath>
+        </dependency>
+
+
+		<!--<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>google-analytics</artifactId>
+			<version>1.5.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.gcm</groupId>
+			<artifactId>google-gcm</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+        <dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>easytracker</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>-->
+
+    </dependencies>
+
+</project>

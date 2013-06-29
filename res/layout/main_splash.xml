@@ -6,7 +6,7 @@
               android:layout_height="match_parent"
               android:background="@android:color/background_light">
 
-    <ImageView
+    <android.widget.ImageView
         android:id="@+id/logoSplash"
         android:src="@drawable/vamo_de_bus_splash"
         android:layout_width="fill_parent"

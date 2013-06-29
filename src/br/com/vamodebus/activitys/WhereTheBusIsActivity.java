@@ -1,33 +1,38 @@
 package br.com.vamodebus.activitys;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
-import android.os.AsyncTask;
 import br.com.vamodebus.R;
 
 import br.com.vamodebus.adapters.WhereTheBusIsAdapter;
 import br.com.vamodebus.leitorhtml.ParserHtml;
 
+//import com.actionbarsherlock.app.ActionBar;
+//import com.actionbarsherlock.app.SherlockActivity;
+//import com.actionbarsherlock.view.Menu;
+//import com.actionbarsherlock.view.MenuInflater;
 import com.google.analytics.tracking.android.EasyTracker;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Pair;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.Window;
 import android.widget.ListView;
-import android.widget.Toast;
 
 /**
  * Created by Eduardo Silva Rosa on 31/05/2013.
  * mail to: edus.silva.rosa@gmail.com
  */
-public class WhereTheBusIsActivity extends BaseListActivity {
+public class WhereTheBusIsActivity extends BaseActivity {
+
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.where_the_bus_is);
 		final Bundle extras = getIntent().getExtras();
@@ -67,7 +72,16 @@ public class WhereTheBusIsActivity extends BaseListActivity {
     	EasyTracker.getInstance().activityStop(this);
     }
 
-    private ProgressDialog dialog ;
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+       return super.onCreateOptionsMenu(menu);
+/*        MenuInflater inflater;
+        inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.activity_main,menu);
+        return  true;*/
+    }
+
+    // private ProgressDialog dialog ;
     /*private class BusList extends AsyncTask<String, Void, List>{
 
 
