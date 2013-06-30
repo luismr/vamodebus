@@ -34,7 +34,6 @@ http://maven.apache.org/maven-v4_0_0.xsd">
                         <verbose>true</verbose>
                         <skip>false</skip>
                     </zipalign>
-                    <deleteConflictingFiles>true</deleteConflictingFiles>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
                 <extensions>true</extensions>
@@ -70,10 +69,10 @@ http://maven.apache.org/maven-v4_0_0.xsd">
                     </execution>
                 </executions>
                 <configuration>
-                    <keystore>${project.basedir}/key.store</keystore>
-                    <alias>ALIAS</alias>
-                    <storepass>PASSWORD</storepass>
-                    <keypass>PASSWORD</keypass>
+                    <keystore>${project.basedir}/keyStoreAndroid</keystore>
+                    <alias>vamodebus</alias>
+                    <storepass>haha6519%</storepass>
+                    <keypass>haha6519%</keypass>
                     <verbose>true</verbose>
                 </configuration>
             </plugin>
@@ -105,28 +104,6 @@ http://maven.apache.org/maven-v4_0_0.xsd">
             <scope>system</scope>
             <systemPath>${basedir}/libs/libGoogleAnalyticsV2.jar</systemPath>
         </dependency>
-
-
-		<!--<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>google-analytics</artifactId>
-			<version>1.5.1</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.gcm</groupId>
-			<artifactId>google-gcm</artifactId>
-			<version>1.0</version>
-			<scope>compile</scope>
-		</dependency>
-
-        <dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>easytracker</artifactId>
-			<version>1.0</version>
-			<scope>compile</scope>
-		</dependency>-->
 
     </dependencies>
 

@@ -31,9 +31,9 @@ public class ListRouteActivity extends BaseListActivity{
         
         final Bundle extras = getIntent().getExtras();  
         
-        HashMap<String, String> optionsMaped = (HashMap<String, String>) extras.getSerializable("ROUTES");
+        HashMap<String, String> optionsMapped = (HashMap<String, String>) extras.getSerializable("ROUTES");
         
-        MapRouteAdapter mapRouteAdapter = new MapRouteAdapter(optionsMaped, this);
+        MapRouteAdapter mapRouteAdapter = new MapRouteAdapter(optionsMapped, this);
         
         ListView listRoutes = (ListView) findViewById(android.R.id.list);
         
