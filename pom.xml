@@ -71,8 +71,8 @@ http://maven.apache.org/maven-v4_0_0.xsd">
                 <configuration>
                     <keystore>${project.basedir}/keyStoreAndroid</keystore>
                     <alias>vamodebus</alias>
-                    <storepass>haha6519%</storepass>
-                    <keypass>haha6519%</keypass>
+                    <storepass>XXXXX</storepass>
+                    <keypass>XXXXXX</keypass>
                     <verbose>true</verbose>
                 </configuration>
             </plugin>

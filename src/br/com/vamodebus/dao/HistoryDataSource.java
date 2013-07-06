@@ -9,20 +9,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.vamodebus.db.SqlLiteHelper;
-import br.com.vamodebus.model.FavoriteRoute;
+import br.com.vamodebus.model.History;
+
 
 /**
- * Created by Eduardo Silva Rosa on 30/06/2013.
- * mail to: edus.silva.rosa@gmail.com
+ * Created by edusr on 7/1/13.
  */
+public class HistoryDataSource{
 
-public class FavoriteRouteDataSource {
     private SQLiteDatabase database;
     private SqlLiteHelper dbHelper;
     private String[] allColumns = { SqlLiteHelper.COLUMN_ID,
-            SqlLiteHelper.NAME};
+        SqlLiteHelper.CODE,
+        SqlLiteHelper.NAME,
+        SqlLiteHelper.NUMBER_ACCESS};
 
-    public FavoriteRouteDataSource(Context context){
+    public HistoryDataSource(Context context){
         dbHelper = new SqlLiteHelper(context);
     }
 
@@ -32,30 +34,32 @@ public class FavoriteRouteDataSource {
 
     public void close(){
         dbHelper.close();
+        database.close();
     }
 
-    public void add(FavoriteRoute favoriteRoute){
+    public void add(History favoriteRoute){
         ContentValues value = new ContentValues();
         value.put(SqlLiteHelper.COLUMN_ID,favoriteRoute.getId());
         value.put(SqlLiteHelper.CODE,favoriteRoute.getCode());
         value.put(SqlLiteHelper.NAME,favoriteRoute.getName());
-        database.insert(SqlLiteHelper.TABLE_FAVORITE_ROUTE,null,value);
+        value.put(SqlLiteHelper.NUMBER_ACCESS,favoriteRoute.getAccesNumber());
+        database.insert(SqlLiteHelper.TABLE_HISTORY,null,value);
     }
 
-    public void Delete(FavoriteRoute favoriteRoute){
-        database.delete(SqlLiteHelper.TABLE_FAVORITE_ROUTE, SqlLiteHelper.COLUMN_ID
+    public void Delete(History favoriteRoute){
+        database.delete(SqlLiteHelper.TABLE_HISTORY, SqlLiteHelper.COLUMN_ID
                 + " = " + favoriteRoute.getId(), null);
     }
 
-    public List<FavoriteRoute> getAllComments() {
-        List<FavoriteRoute> comments = new ArrayList<FavoriteRoute>();
+    public List<History> getAllHistory() {
+        List<History> comments = new ArrayList<History>();
 
-        Cursor cursor = database.query(SqlLiteHelper.TABLE_FAVORITE_ROUTE,
+        Cursor cursor = database.query(SqlLiteHelper.TABLE_HISTORY,
                 allColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            FavoriteRoute comment = cursorToFavoriteRoute(cursor);
+            History comment = cursorToFavoriteRoute(cursor);
             comments.add(comment);
             cursor.moveToNext();
         }
@@ -64,8 +68,8 @@ public class FavoriteRouteDataSource {
         return comments;
     }
 
-    private FavoriteRoute cursorToFavoriteRoute(Cursor cursor){
-        FavoriteRoute favoriteRoute = new FavoriteRoute();
+    private History cursorToFavoriteRoute(Cursor cursor){
+        History favoriteRoute = new History();
         favoriteRoute.setId(cursor.getString(0));
         favoriteRoute.setCode(cursor.getString(1));
         favoriteRoute.setName(cursor.getString(2));

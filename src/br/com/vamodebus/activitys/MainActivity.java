@@ -1,6 +1,7 @@
 package br.com.vamodebus.activitys;
 
 import java.util.HashMap;
+import java.util.List;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,18 +10,26 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+
 import br.com.vamodebus.R;
+import br.com.vamodebus.dao.HistoryDataSource;
 import br.com.vamodebus.leitorhtml.ParserHtml;
+import br.com.vamodebus.model.History;
 
 import com.google.analytics.tracking.android.EasyTracker;
+
+
 
 /**
  * Created by Eduardo Silva Rosa on 31/05/2013.
  * mail to: edus.silva.rosa@gmail.com
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseListActivity {
 	
 
     @Override
@@ -29,8 +38,23 @@ public class MainActivity extends BaseActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         
-        Button buttonFindRoute = (Button) findViewById(R.id.button_submit_code_of_route);
-        
+        ImageButton buttonFindRoute = (ImageButton) findViewById(R.id.button_submit_code_of_route);
+
+        //ListView t = (ListView) findViewById(R.id.dataFromDb);
+
+        HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
+        historyDataSource.open();
+
+        List<History> l = historyDataSource.getAllHistory();
+
+        ArrayAdapter<History> dataAdapter = new ArrayAdapter<History>(this,android.R.layout.simple_list_item_1,l);
+
+        setListAdapter(dataAdapter);
+
+        //t.setAdapter(dataAdapter);
+
+        historyDataSource.close();
+
         final EditText textView = (EditText) findViewById(R.id.edit_text_code_of_route);
         buttonFindRoute.setOnClickListener(new OnClickListener(){
 
@@ -80,4 +104,10 @@ public class MainActivity extends BaseActivity {
 
 		return parserHtml.mapOptions();
 	}
+
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+    }
 }

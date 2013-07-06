@@ -13,18 +13,27 @@ import android.util.Log;
 public class SqlLiteHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_FAVORITE_ROUTE = "FAVORITE_ROUTE";
+    public static final String TABLE_HISTORY = "HISTORY";
     public static final String COLUMN_ID = "_id";
     public static final String CODE = " code";
     public static final String NAME = " name";
+    public static final String NUMBER_ACCESS = "number_access";
 
     private static final String DATABASE_NAME = "commments.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Database creation sql statement
-    private static final String DATABASE_CREATE = "create table "
+    private static final String DATABASE_CREATE_FAVORITE_ROUTE_TABLE = "create table if not exists "
             + TABLE_FAVORITE_ROUTE + "(" + COLUMN_ID
             + " text primary key , " + CODE
             + " text not null ," + NAME
+            + " text not null);";
+
+    private static final String DATABASE_CREATE_HISTORY_TABLE = "create table if not exists "
+            + TABLE_HISTORY + "(" + COLUMN_ID
+            + " text primary key , " + CODE
+            + " text not null ," + NAME
+            + " text not null," + NUMBER_ACCESS
             + " text not null);";
 
     public SqlLiteHelper(Context context) {
@@ -33,7 +42,8 @@ public class SqlLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.execSQL(DATABASE_CREATE);
+        database.execSQL(DATABASE_CREATE_FAVORITE_ROUTE_TABLE);
+        database.execSQL(DATABASE_CREATE_HISTORY_TABLE);
     }
 
     @Override

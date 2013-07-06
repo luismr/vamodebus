@@ -11,9 +11,13 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import br.com.vamodebus.R;
 import br.com.vamodebus.adapters.MapRouteAdapter;
+import br.com.vamodebus.dao.HistoryDataSource;
 import br.com.vamodebus.leitorhtml.ParserHtml;
+import br.com.vamodebus.model.History;
 
 import com.google.analytics.tracking.android.EasyTracker;
 
@@ -49,6 +53,16 @@ public class ListRouteActivity extends BaseListActivity{
 				startActivity(intent);*/
 
                 final ProgressDialog myDialog = ProgressDialog.show( ListRouteActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
+
+                History history = new History();
+                history.setId(v.getTag().toString());
+                TextView nameRoute = (TextView) v.findViewById(R.id.name_route);
+                history.setName(nameRoute.getText().toString());
+                history.setAccesNumber("1");
+                history.setCode("0");
+                HistoryDataSource hDS = new HistoryDataSource(getApplicationContext());
+                hDS.open();
+                hDS.add(history);
 
                 new Thread(new Runnable() {
                     @Override

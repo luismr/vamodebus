@@ -26,8 +26,10 @@ public class MapRouteAdapter extends BaseAdapter{
 	public MapRouteAdapter(HashMap<String, String> optionsMaped,Context
 			 ctx ) {
 		this.optionsMaped = optionsMaped;
+        //this.optionsMaped.put("1","Santa Luzia");
 		this.mKeys = this.optionsMaped.keySet().toArray(new String[optionsMaped.size()]);
 		this.ctx = ctx;
+
 	}
 
 	@Override
