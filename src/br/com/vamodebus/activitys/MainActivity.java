@@ -15,8 +15,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import br.com.vamodebus.R;
+import br.com.vamodebus.adapters.HistoryAdapter;
 import br.com.vamodebus.dao.HistoryDataSource;
 import br.com.vamodebus.leitorhtml.ParserHtml;
 import br.com.vamodebus.model.History;
@@ -47,7 +49,7 @@ public class MainActivity extends BaseListActivity {
 
         List<History> l = historyDataSource.getAllHistory();
 
-        ArrayAdapter<History> dataAdapter = new ArrayAdapter<History>(this,android.R.layout.simple_list_item_1,l);
+        HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
 
         setListAdapter(dataAdapter);
 
@@ -71,7 +73,6 @@ public class MainActivity extends BaseListActivity {
 						
 						intent.putExtra("ROUTE", textView.getText().toString());
 						intent.putExtra("ROUTES", findRoutes(textView.getText().toString()));
-						findRoutes(textView.getText().toString());
 						startActivity(intent);
 						myDialog.dismiss();
 					}
@@ -105,9 +106,30 @@ public class MainActivity extends BaseListActivity {
 		return parserHtml.mapOptions();
 	}
 
+    public String findRoutes(String route,String edCode) {
+        ParserHtml parserHtml = new ParserHtml(
+                "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+                        + route + "&route="+ edCode );
+        return parserHtml.getHtml();
+    }
+
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
+    protected void onListItemClick(ListView l,final View v, int position, long id) {
+        final ProgressDialog myDialog = ProgressDialog.show( MainActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
+
+                TextView historyDescription = (TextView) v.findViewById(R.id.textHistory);
+
+                intent.putExtra("ROUTES", findRoutes(historyDescription.getText().toString()));
+                findRoutes(historyDescription.getText().toString(),v.getTag().toString());
+                startActivity(intent);
+                myDialog.dismiss();
+            }
+        }).start();
     }
 }

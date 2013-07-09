@@ -22,6 +22,9 @@ public class BaseActivity extends Activity {
         if(item.getItemId() == R.id.menu_settings){
             Intent intent = new Intent(getApplicationContext(),InfoActivity.class);
             startActivity(intent);
+        }else if(item.getItemId() == R.id.configuration){
+            Intent intent = new Intent(getApplicationContext(),ConfigActivity.class);
+            startActivity(intent);
         }
         return super.onMenuItemSelected(featureId, item);
     }
