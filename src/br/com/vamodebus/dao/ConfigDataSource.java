@@ -20,7 +20,7 @@ public class ConfigDataSource{
     private SQLiteDatabase database;
     private SqlLiteHelper dbHelper;
     private String[] allColumns = { SqlLiteHelper.COLUMN_ID,
-        SqlLiteHelper.NAME};
+        SqlLiteHelper.NAME,SqlLiteHelper.VALUE};
 
     public ConfigDataSource(Context context){
         dbHelper = new SqlLiteHelper(context);
@@ -32,25 +32,26 @@ public class ConfigDataSource{
 
     public void close(){
         dbHelper.close();
+        database.close();
     }
 
     public void add(Config favoriteRoute){
         ContentValues value = new ContentValues();
         value.put(SqlLiteHelper.COLUMN_ID,favoriteRoute.getId());
-        value.put(SqlLiteHelper.CODE,favoriteRoute.getValue());
+        value.put(SqlLiteHelper.VALUE,favoriteRoute.getValue());
         value.put(SqlLiteHelper.NAME,favoriteRoute.getName());
-        database.insert(SqlLiteHelper.TABLE_FAVORITE_ROUTE,null,value);
+        database.insert(SqlLiteHelper.TABLE_CONFIG,null,value);
     }
 
     public void Delete(Config favoriteRoute){
-        database.delete(SqlLiteHelper.TABLE_FAVORITE_ROUTE, SqlLiteHelper.COLUMN_ID
+        database.delete(SqlLiteHelper.TABLE_CONFIG, SqlLiteHelper.COLUMN_ID
                 + " = " + favoriteRoute.getId(), null);
     }
 
-    public List<Config> getAllComments() {
+    public List<Config> getAllConfigs() {
         List<Config> comments = new ArrayList<Config>();
 
-        Cursor cursor = database.query(SqlLiteHelper.TABLE_FAVORITE_ROUTE,
+        Cursor cursor = database.query(SqlLiteHelper.TABLE_CONFIG,
                 allColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
@@ -64,11 +65,25 @@ public class ConfigDataSource{
         return comments;
     }
 
+    public Config getListRouteConfig(){
+       if(database == null){
+            return null;
+        }
+        String query = "select * from " + SqlLiteHelper.TABLE_CONFIG + " where name = 'listRoute'";
+       Cursor cursor =  database.rawQuery(query,null);
+        cursor.moveToFirst();
+        Config config = cursorToFavoriteRoute(cursor);
+        cursor.close();
+
+       return config;
+
+    }
+
     private Config cursorToFavoriteRoute(Cursor cursor){
         Config favoriteRoute = new Config();
-        favoriteRoute.setId(cursor.getLong(0));
-        favoriteRoute.setValue(cursor.getString(1));
-        favoriteRoute.setName(cursor.getString(2));
+        favoriteRoute.setValue(cursor.getString(cursor.getColumnIndex("value")));
+        favoriteRoute.setName(cursor.getString(cursor.getColumnIndex("name")));
+        favoriteRoute.setId(cursor.getLong(cursor.getColumnIndex("_id")));
         return favoriteRoute;
     }
 }

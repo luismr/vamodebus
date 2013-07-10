@@ -22,7 +22,7 @@ public class SqlLiteHelper extends SQLiteOpenHelper {
     public static final String VALUE = "value";
 
     private static final String DATABASE_NAME = "commments.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     // Database creation sql statement
     private static final String DATABASE_CREATE_FAVORITE_ROUTE_TABLE = "create table if not exists "
@@ -40,7 +40,7 @@ public class SqlLiteHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_CREATE_CONFIG_TABLE = "create table if not exists "
             + TABLE_CONFIG + "(" + COLUMN_ID
-            + " text primary key , " + NAME
+            + " integer primary key autoincrement , " + NAME
             + " text not null ," + VALUE
             + " text not null);";
 

@@ -88,7 +88,7 @@ public class ListRouteActivity extends BaseListActivity{
 
     public String findRoutes(String route,String edCode) {
         ParserHtml parserHtml = new ParserHtml(
-                "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+                "http://200.170.170.87/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
                         + route + "&route="+ edCode );
         return parserHtml.getHtml();
     }

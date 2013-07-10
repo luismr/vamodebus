@@ -6,7 +6,7 @@ package br.com.vamodebus.model;
 public class Config {
 
     String name;
-    Long id;
+    long id;
     String value;
 
 
@@ -18,11 +18,11 @@ public class Config {
         this.name = name;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

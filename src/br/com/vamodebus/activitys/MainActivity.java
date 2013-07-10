@@ -98,9 +98,9 @@ public class MainActivity extends BaseListActivity {
     
 	public HashMap<String, String> findRoutes(String str) {
 		ParserHtml parserHtml = new ParserHtml(
-				"http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+				"http://200.170.170.87/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
 						+ str + "&btcode=Buscar&route=0");
-		Log.i("URL_CONEXAO", "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+		Log.i("URL_CONEXAO", "http://200.170.170.87/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
 						+ str + "&btcode=Buscar&route=0");
 
 		return parserHtml.mapOptions();
