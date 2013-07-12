@@ -71,11 +71,16 @@ public class ConfigDataSource{
         }
         String query = "select * from " + SqlLiteHelper.TABLE_CONFIG + " where name = 'listRoute'";
        Cursor cursor =  database.rawQuery(query,null);
-        cursor.moveToFirst();
-        Config config = cursorToFavoriteRoute(cursor);
-        cursor.close();
 
-       return config;
+        if(cursor.getCount() !=0){
+            cursor.moveToFirst();
+            Config config = cursorToFavoriteRoute(cursor);
+            cursor.close();
+            return config;
+        }else{
+            return null;
+        }
+
 
     }
 
