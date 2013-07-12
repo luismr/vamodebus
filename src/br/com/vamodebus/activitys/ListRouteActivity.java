@@ -63,6 +63,7 @@ public class ListRouteActivity extends BaseListActivity{
                 HistoryDataSource hDS = new HistoryDataSource(getApplicationContext());
                 hDS.open();
                 hDS.add(history);
+                hDS.close();
 
                 new Thread(new Runnable() {
                     @Override

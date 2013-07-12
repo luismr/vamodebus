@@ -37,25 +37,17 @@ public class MainActivity extends BaseListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+
         setContentView(R.layout.activity_main);
+
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.title);
         
         ImageButton buttonFindRoute = (ImageButton) findViewById(R.id.button_submit_code_of_route);
 
         //ListView t = (ListView) findViewById(R.id.dataFromDb);
-
-        HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
-        historyDataSource.open();
-
-        List<History> l = historyDataSource.getAllHistory();
-
-        HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
-
-        setListAdapter(dataAdapter);
-
-        //t.setAdapter(dataAdapter);
-
-        historyDataSource.close();
 
         final EditText textView = (EditText) findViewById(R.id.edit_text_code_of_route);
         buttonFindRoute.setOnClickListener(new OnClickListener(){
@@ -88,6 +80,19 @@ public class MainActivity extends BaseListActivity {
     protected void onStart() {
     	super.onStart();
     	EasyTracker.getInstance().activityStart(this);
+
+        HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
+        historyDataSource.open();
+
+        List<History> l = historyDataSource.getAllHistory();
+
+        HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
+
+        setListAdapter(dataAdapter);
+
+        //t.setAdapter(dataAdapter);
+
+        historyDataSource.close();
     }
     
     @Override
@@ -108,7 +113,7 @@ public class MainActivity extends BaseListActivity {
 
     public String findRoutes(String route,String edCode) {
         ParserHtml parserHtml = new ParserHtml(
-                "http://200.170.170.86/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
+                "http://200.170.170.87/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
                         + route + "&route="+ edCode );
         return parserHtml.getHtml();
     }
@@ -125,8 +130,9 @@ public class MainActivity extends BaseListActivity {
 
                 TextView historyDescription = (TextView) v.findViewById(R.id.textHistory);
 
-                intent.putExtra("ROUTES", findRoutes(historyDescription.getText().toString()));
-                findRoutes(historyDescription.getText().toString(),v.getTag().toString());
+                intent.putExtra("ROUTES", findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString()));
+
+                findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString());
                 startActivity(intent);
                 myDialog.dismiss();
             }

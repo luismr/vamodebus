@@ -28,7 +28,9 @@ public class ConfigActivity extends Activity {
 
         ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
         configDataSource.open();
-        configDataSource.add(config);
+        if(configDataSource.getListRouteConfig() == null){
+            configDataSource.add(config);
+        }
         configDataSource.close();
 
     }
@@ -41,10 +43,14 @@ public class ConfigActivity extends Activity {
         configDataSource.open();
         Config config = configDataSource.getListRouteConfig();
         configDataSource.close();
+        RadioButton historyRadio = (RadioButton) findViewById(R.id.radioHistory);
+        RadioButton favoriteRadio = (RadioButton) findViewById(R.id.radioPrefer);
         if(config.getValue().equals("history")){
-            Toast.makeText(this,"History",Toast.LENGTH_SHORT).show();
+            historyRadio.setChecked(true);
+            //Toast.makeText(this,"History",Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this,"Prefer",Toast.LENGTH_SHORT).show();
+            favoriteRadio.setChecked(true);
+            //Toast.makeText(this,"Prefer",Toast.LENGTH_SHORT).show();
         }
 
     }

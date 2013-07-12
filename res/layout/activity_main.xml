@@ -1,66 +1,66 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:id="@+id/image_yelow_bus"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/logo_vamo_de_bus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:padding="20dp"/>
-
-        <TextView
-            android:id="@+id/label_code_of_route"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:padding="@dimen/padding_medium"
-            android:layout_margin="5dp"
-            android:text="@string/code_of_route"
-            android:layout_below="@id/image_yelow_bus" />
+         >
 
         <ImageButton
                 android:id="@+id/button_submit_code_of_route"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image_yelow_bus"
                 android:layout_alignParentRight="true"
-                android:layout_centerHorizontal="true"
                 android:src="@android:drawable/ic_search_category_default"/>
 
-        <EditText
-            android:id="@+id/edit_text_code_of_route"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/label_code_of_route"
-            android:layout_toLeftOf="@id/button_submit_code_of_route"
-            android:layout_below="@id/image_yelow_bus"
-            android:inputType="text"
-            android:layout_margin="5dp"
-            android:hint="@string/rout_example"/>
 
         <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/button_submit_code_of_route"
+                android:layout_alignParentLeft="true"
+                android:orientation="horizontal"
+                >
+       <TextView
+            android:id="@+id/label_code_of_route"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/label_code_of_route">
+            android:padding="@dimen/padding_medium"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:text="@string/code_of_route"
+            />
 
-                <ListView
-                    android:id="@android:id/list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                </ListView>
-
+        <EditText
+                android:id="@+id/edit_text_code_of_route"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_margin="5dp"
+                android:hint="@string/rout_example"/>
         </LinearLayout>
 
-
     </RelativeLayout>
+    </LinearLayout>
 
-</ScrollView>
+
+   <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="@dimen/padding_medium">
+    </ListView>
+
+
+
+</LinearLayout>
+
