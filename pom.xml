@@ -69,10 +69,10 @@ http://maven.apache.org/maven-v4_0_0.xsd">
                     </execution>
                 </executions>
                 <configuration>
-                    <keystore>${project.basedir}/keyStoreAndroid</keystore>
+                    <keystore>${project.basedir}/keyVDB</keystore>
                     <alias>vamodebus</alias>
-                    <storepass>haha6519%</storepass>
-                    <keypass>haha6519%</keypass>
+                    <storepass>vdb123</storepass>
+                    <keypass>vdb123</keypass>
                     <verbose>true</verbose>
                 </configuration>
             </plugin>
