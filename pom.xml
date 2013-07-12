@@ -70,7 +70,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
                 </executions>
                 <configuration>
                     <keystore>${project.basedir}/keyVDB</keystore>
-                    <alias>vamodebus</alias>
+                    <alias>vdb</alias>
                     <storepass>vdb123</storepass>
                     <keypass>vdb123</keypass>
                     <verbose>true</verbose>
