@@ -7,7 +7,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.vamodebus</groupId>
     <artifactId>VamoDeBus</artifactId>
-    <version>0.1</version>
+    <version>1.3.1-SNAPSHOT</version>
     <packaging>apk</packaging>
     <name>VamoDeBus</name>
 
