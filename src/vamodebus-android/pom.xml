@@ -23,7 +23,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 
 <distributionManagement>
     <repository>
-      <id>isingular-developers-release</id>
+      <id>singular-developers-release</id>
       <url>ftp://developer.singularideas.com.br/</url>
     </repository>
   </distributionManagement>
