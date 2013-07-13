@@ -11,6 +11,23 @@ http://maven.apache.org/maven-v4_0_0.xsd">
     <packaging>apk</packaging>
     <name>VamoDeBus</name>
 
+<scm>
+                <connection>scm:git:git@github.com:luismr/vamodebus.git
+                </connection>
+                <url>scm:git:git@github.com:luismr/vamodebus.git
+                </url>
+                <developerConnection>scm:git:git@github.com:luismr/vamodebus.git
+                </developerConnection>
+                <tag>HEAD</tag>
+        </scm>
+
+<distributionManagement>
+    <repository>
+      <id>developers-release</id>
+      <url>ftp://developer.singularideas.com.br/</url>
+    </repository>
+  </distributionManagement>
+
     <build>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
@@ -78,6 +95,14 @@ http://maven.apache.org/maven-v4_0_0.xsd">
             </plugin>
 
         </plugins>
+<extensions>
+      <!-- Enabling the use of FTP -->
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-ftp</artifactId>
+         <version>1.0-beta-6</version>
+      </extension>
+    </extensions>
 
     </build>
 
