@@ -95,7 +95,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<keystore>${project.basedir}/keyVDB</keystore>
+					<keystore>${project.basedir}/key/vdb.keystore</keystore>
 					<alias>vdb</alias>
 					<storepass>vdb123</storepass>
 					<keypass>vdb123</keypass>
