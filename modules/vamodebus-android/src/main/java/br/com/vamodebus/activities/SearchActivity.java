@@ -8,15 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-
 import br.com.vamodebus.R;
 import br.com.vamodebus.adapters.HistoryAdapter;
 import br.com.vamodebus.dao.HistoryDataSource;
@@ -36,24 +34,21 @@ public class SearchActivity extends BaseListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-
-        setContentView(R.layout.activity_main);
-
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,R.layout.title);
+        // set window to be full screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
-        ImageButton buttonFindRoute = (ImageButton) findViewById(R.id.button_submit_code_of_route);
+        setContentView(R.layout.search); 
 
-        //ListView t = (ListView) findViewById(R.id.dataFromDb);
+        ImageButton buttonFindRoute = (ImageButton) findViewById(R.id.button_submit_code_of_route);
 
         final EditText textView = (EditText) findViewById(R.id.edit_text_code_of_route);
         buttonFindRoute.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-
 				
 		        final ProgressDialog myDialog = ProgressDialog.show( SearchActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
 		        
@@ -84,13 +79,9 @@ public class SearchActivity extends BaseListActivity {
         historyDataSource.open();
 
         List<History> l = historyDataSource.getAllHistory();
-
         HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
 
         setListAdapter(dataAdapter);
-
-        //t.setAdapter(dataAdapter);
-
         historyDataSource.close();
     }
     

@@ -11,6 +11,8 @@
     <string name="adpremium_noads_link_twitter">www.twitter.com/vamodebus</string>
     <string name="adpremium_noads_link_web">www.vamodebus.com.br</string>
     
+    <string name="search_list_lastused">Últimas Consultas:</string>
+    
     <string name="code_of_route">Código da Linha: </string>
     <string name="find">Buscar</string>
     <string name="menu_about">Info</string>
