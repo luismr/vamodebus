@@ -46,7 +46,7 @@ public class SocialActivity  extends Activity {
     }
 
     public void startApplication() {
-        Intent mainIntent = new Intent(SocialActivity.this,MainActivity.class);
+        Intent mainIntent = new Intent(SocialActivity.this,SearchActivity.class);
         startActivity(mainIntent);
         SocialActivity.this.finish();
     }

@@ -26,7 +26,7 @@
         <repository>
                 <id>singular-developers-libs</id>
                 <name>Singular Ideas Developers Libs</name>
-                <url>ftp://developer.singularideas.com.br/libs</url>
+                <url>http://developer.singularideas.com.br/maven/repos/libs</url>
         </repository>
     </repositories>
         
