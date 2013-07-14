@@ -2,7 +2,6 @@ package br.com.vamodebus.activitys;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,36 +9,52 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Window;
+import android.view.WindowManager;
 import br.com.vamodebus.R;
 
+/**
+ * Created by edusr on 7/6/13.
+ * Updated by luismr on 7/12/13
+ */
 public class SplashActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_splash);
 
-        new CountDownTimer(5 * 1000, 1000) {
+        // set window to be full screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
+        setContentView(R.layout.splash);
+
+        // set timer to only 2 secs 
+        new CountDownTimer(2 * 1000, 1000) {
+        	
             @Override
             public void onTick(long millisUntilFinished) {
-
+            	// nothing
             }
 
             @Override
             public void onFinish() {
-                if(isOnline()){
-                    SplashActivity.this.startApplication();
-                }else{
-                    AlertDialog.Builder d = new AlertDialog.Builder(SplashActivity.this);
-                    d.setTitle("Não há conexão com a internet");
-                    d.setPositiveButton("Sair",new DialogInterface.OnClickListener() {
+                if (isOnline()) {
+                    startApplication();
+                } else {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(SplashActivity.this);
+                    
+                    dialog.setTitle("Não há conexão com a internet");
+                    dialog.setPositiveButton("Sair",new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             System.exit(0);
                         }
                     });
-                    d.setCancelable(false);
-                    d.show();
+                    
+                    dialog.setCancelable(false);
+                    dialog.show();
                 }
             }
         }.start();
@@ -47,13 +62,11 @@ public class SplashActivity extends Activity {
     }
 
     public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        }
-        return false;
+        ConnectivityManager manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = manager.getActiveNetworkInfo();
+        
+        // simplified return condition
+        return (info != null && info.isConnectedOrConnecting());
     }
 
     public void startApplication() {
@@ -64,6 +77,6 @@ public class SplashActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-       // super.onBackPressed();
+       // nothing
     }
 }
