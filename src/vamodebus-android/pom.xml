@@ -38,6 +38,11 @@
 				<artifactId>android-maven-plugin</artifactId>
 				<version>3.6.0</version>
 				<configuration>
+<genDirectory>target/android/gen</genDirectory>
+<assetsDirectory>src/main/android/assets</assetsDirectory>
+<resourceDirectory>src/main/android/res</resourceDirectory>
+<androidManifestFile>src/main/android/AndroidManifest.xml</androidManifestFile>
+						<undeployBeforeDeploy>true</undeployBeforeDeploy>
 					<sdk>
 						<platform>9</platform>
 					</sdk>

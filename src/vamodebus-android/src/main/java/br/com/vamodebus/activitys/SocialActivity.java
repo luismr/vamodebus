@@ -1,31 +1,38 @@
 package br.com.vamodebus.activitys;
 
+import br.com.vamodebus.R;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-
-import br.com.vamodebus.R;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ProgressBar;
 
 /**
  * Created by edusr on 7/6/13.
+ * Updated by luismr on 7/12/13
  */
 public class SocialActivity  extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // set window to be full screen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
         setContentView(R.layout.social);
 
-        new CountDownTimer(10 * 1000, 1000) {
+        new CountDownTimer(5 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
+            	int completed = Math.round((millisUntilFinished / (5 * 1000)) * 100);
+            	
+            	ProgressBar bar = (ProgressBar) findViewById(R.id.socialLoadingProgressBar);
+            	bar.setProgress(completed);
             }
 
             @Override

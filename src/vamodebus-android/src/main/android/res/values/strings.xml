@@ -1,6 +1,16 @@
 <resources>
 
-    <string name="app_name">VDB!</string>
+    <string name="app_name">Vamo de Bus!</string>
+    <string name="app_short_name">VDB!</string>
+    
+    <string name="adpremium_noads_label_facebook">Facebook</string>
+    <string name="adpremium_noads_label_twitter">Twitter</string>
+    <string name="adpremium_noads_label_web">Web</string>
+    
+    <string name="adpremium_noads_link_facebook">www.facebook.com/vamodebus</string>
+    <string name="adpremium_noads_link_twitter">www.twitter.com/vamodebus</string>
+    <string name="adpremium_noads_link_web">www.vamodebus.com.br</string>
+    
     <string name="code_of_route">Código da Linha: </string>
     <string name="find">Buscar</string>
     <string name="menu_about">Info</string>
