@@ -1,4 +1,4 @@
-package br.com.vamodebus.activitys;
+package br.com.vamodebus.activities;
 
 import android.app.ListActivity;
 import android.content.Intent;

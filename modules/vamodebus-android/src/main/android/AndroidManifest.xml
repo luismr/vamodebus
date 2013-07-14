@@ -15,19 +15,19 @@
         android:theme="@style/AppTheme"
         android:debuggable="true">
 
-        <activity android:name=".activitys.SplashActivity" >
+        <activity android:name=".activities.SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         
-        <activity android:name=".activitys.ListRouteActivity"></activity>
-        <activity android:name=".activitys.WhereTheBusIsActivity"></activity>
-        <activity android:name=".activitys.MainActivity"/>
-        <activity android:name=".activitys.InfoActivity"/>
-        <activity android:name=".activitys.SocialActivity"/>
-        <activity android:name=".activitys.ConfigActivity"/>
+        <activity android:name=".activities.ListRouteActivity"></activity>
+        <activity android:name=".activities.WhereTheBusIsActivity"></activity>
+        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".activities.InfoActivity"/>
+        <activity android:name=".activities.SocialActivity"/>
+        <activity android:name=".activities.ConfigActivity"/>
         
     </application>
 

@@ -1,4 +1,4 @@
-package br.com.vamodebus.activitys;
+package br.com.vamodebus.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
