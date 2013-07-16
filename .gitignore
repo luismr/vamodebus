@@ -10,12 +10,6 @@
 
 # generated files
 bin/
-gen/
-
-# eclipse
-.project
-.settings
-.classpath
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -36,4 +30,3 @@ proguard/
 *.iws
 .idea/
 
-project.properties
