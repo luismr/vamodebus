@@ -39,10 +39,8 @@ public class ConfigActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
-        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
-        configDataSource.open();
-        Config config = configDataSource.getListRouteConfig();
-        configDataSource.close();
+        Config config = getConfigFromDB();
+
         RadioButton historyRadio = (RadioButton) findViewById(R.id.radioHistory);
         RadioButton favoriteRadio = (RadioButton) findViewById(R.id.radioPrefer);
         if(config.getValue().equals("history")){
@@ -54,6 +52,22 @@ public class ConfigActivity extends Activity {
         }
 
     }
+    
+    public Config getConfigFromDB(){
+        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+        configDataSource.open();
+        Config config = configDataSource.getListRouteConfig();
+        configDataSource.close();
+        return config;
+    }
+    
+    public void updateConfigInDB(String value){
+        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+        configDataSource.open();
+        Config config = configDataSource.getListRouteConfig();
+        configDataSource.updateListRouteConfiguration(config.getId(),value);
+        configDataSource.close();
+    }
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -62,13 +76,15 @@ public class ConfigActivity extends Activity {
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.radioHistory:
-                if (checked)
-                    Toast.makeText(this,"History",Toast.LENGTH_SHORT).show();
+                if (checked){
+                	updateConfigInDB("history");
+                }
                     break;
             case R.id.radioPrefer:
-                if (checked)
-                    Toast.makeText(this,"Prefer",Toast.LENGTH_SHORT).show();
-                    break;
+                if (checked){
+                	updateConfigInDB("prefer");
+                }
+                break;
         }
     }
 

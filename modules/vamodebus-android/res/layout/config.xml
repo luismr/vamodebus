@@ -36,7 +36,7 @@
         <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rostas favoritas"
+                android:text="Rotas favoritas"
                 android:id="@+id/radioPrefer"
                 android:layout_gravity="left|center_vertical"
                 android:onClick="onRadioButtonClicked"/>
@@ -46,15 +46,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Limpar"
+            android:text="Limpar Histórico/Favoritos"
             android:id="@+id/button"
             android:layout_gravity="right|center_vertical"/>
-
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Salvar"
-            android:id="@+id/button2"
-            android:layout_gravity="right|center_vertical"/>
-
 </LinearLayout>
