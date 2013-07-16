@@ -5,7 +5,7 @@ import java.util.List;
 import br.com.vamodebus.R;
 
 import br.com.vamodebus.adapters.WhereTheBusIsAdapter;
-import br.com.vamodebus.leitorhtml.ParserHtml;
+import br.com.vamodebus.crawler.ParserHtml;
 
 //import com.actionbarsherlock.app.ActionBar;
 //import com.actionbarsherlock.app.SherlockActivity;

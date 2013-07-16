@@ -1,4 +1,4 @@
-package br.com.vamodebus.leitorhtml;
+package br.com.vamodebus.crawler;
 
 import java.io.*;
 import java.net.URL;

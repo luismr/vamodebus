@@ -17,8 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import br.com.vamodebus.R;
 import br.com.vamodebus.adapters.HistoryAdapter;
+import br.com.vamodebus.crawler.ParserHtml;
 import br.com.vamodebus.dao.HistoryDataSource;
-import br.com.vamodebus.leitorhtml.ParserHtml;
 import br.com.vamodebus.model.History;
 
 import com.google.analytics.tracking.android.EasyTracker;
