@@ -3,10 +3,7 @@ package br.com.vamodebus.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.RadioButton;
-import android.widget.Toast;
-
 import br.com.vamodebus.R;
 import br.com.vamodebus.dao.ConfigDataSource;
 import br.com.vamodebus.model.Config;
@@ -86,6 +83,13 @@ public class ConfigActivity extends Activity {
                 }
                 break;
         }
+    }
+    
+    public void cleanListDB(){
+        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+        configDataSource.open();
+        configDataSource.deleteListDB();
+        configDataSource.close();
     }
 
 

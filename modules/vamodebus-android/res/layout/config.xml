@@ -48,5 +48,6 @@
             android:layout_height="wrap_content"
             android:text="Limpar Histórico/Favoritos"
             android:id="@+id/button"
-            android:layout_gravity="right|center_vertical"/>
+            android:layout_gravity="right|center_vertical"
+            android:onClick="cleanListDB"/>
 </LinearLayout>

@@ -89,6 +89,11 @@ public class ConfigDataSource{
 
 
     }
+    
+    public void deleteListDB(){
+    	database.delete(SqlLiteHelper.TABLE_HISTORY, null, null);
+    	database.delete(SqlLiteHelper.TABLE_FAVORITE_ROUTE, null, null);
+    }
 
     private Config cursorToFavoriteRoute(Cursor cursor){
         Config favoriteRoute = new Config();
