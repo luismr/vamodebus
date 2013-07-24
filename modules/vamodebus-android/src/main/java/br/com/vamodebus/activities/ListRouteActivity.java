@@ -45,19 +45,24 @@ public class ListRouteActivity extends BaseListActivity{
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View v, int position,long id) {
-/*				Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
+				//FIXME devemos tirar este código?
+				/*				
+				Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
 				intent.putExtra("ROUTE", extras.getString("ROUTE"));
 				intent.putExtra("IDROUTE", v.getTag().toString());
-				startActivity(intent);*/
+				startActivity(intent);
+				*/
 
                 final ProgressDialog myDialog = ProgressDialog.show( ListRouteActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
 
+                TextView nameRoute = (TextView) v.findViewById(R.id.name_route);
+
                 History history = new History();
                 history.setId(v.getTag().toString());
-                TextView nameRoute = (TextView) v.findViewById(R.id.name_route);
                 history.setName(nameRoute.getText().toString());
                 history.setAccesNumber("1");
                 history.setCode("0");
+                
                 HistoryDataSource hDS = new HistoryDataSource(getApplicationContext());
                 hDS.open();
                 hDS.add(history);
@@ -67,22 +72,14 @@ public class ListRouteActivity extends BaseListActivity{
                     @Override
                     public void run() {
                         Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
-
-
                         intent.putExtra("ROUTES", findRoutes(extras.getString("ROUTE"),v.getTag().toString()));
+
                         startActivity(intent);
                         myDialog.dismiss();
                     }
                 }).start();
-
-
-
-
 			}
-
 		});
-        
-        
 	}
 
     public String findRoutes(String route,String edCode) {
