@@ -15,7 +15,7 @@
     
     <string name="action_settings">Configurações</string>
     
-    <string name="code_of_route">Código da Linha: </string>
+    <string name="code_of_route">Linha: </string>
     <string name="find">Buscar</string>
     <string name="menu_about">Info</string>
     <string name="title_activity_main">Vamo de Bus!</string>
