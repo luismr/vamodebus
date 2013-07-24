@@ -1,16 +1,14 @@
 package br.com.vamodebus.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.vamodebus.db.SqlLiteHelper;
 import br.com.vamodebus.model.Config;
-import br.com.vamodebus.model.FavoriteRoute;
 
 /**
  * Created by edusr on 7/8/13.
