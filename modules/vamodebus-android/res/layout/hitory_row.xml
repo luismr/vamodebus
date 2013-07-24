@@ -8,6 +8,8 @@
     <TextView
         android:id="@+id/textHistory"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
+        android:layout_width="match_parent"
+        android:textSize="30sp"
+        android:text="TESTE"/>
 
 </LinearLayout>
