@@ -3,8 +3,6 @@ package br.com.vamodebus.adapters;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-import br.com.vamodebus.R;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Pair;
@@ -14,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import br.com.vamodebus.R;
 
 /**
  * Created by Eduardo Silva Rosa on 31/05/2013.
@@ -51,7 +50,9 @@ public class WhereTheBusIsAdapter extends BaseAdapter{
         
         ImageView imageView = (ImageView) v.findViewById(R.id.image_bus);
         TextView nameRoute = (TextView) v.findViewById(R.id.name_bus_stop);
-        Pair<String, Boolean> pair = (Pair<String, Boolean>)getItem(position);
+        
+        @SuppressWarnings("unchecked")
+		Pair<String, Boolean> pair = (Pair<String, Boolean>)getItem(position);
 		try {
 			nameRoute.setText(new String(pair.first.getBytes(),"utf-8"));
 		} catch (UnsupportedEncodingException e) {

@@ -2,23 +2,20 @@ package br.com.vamodebus.activities;
 
 import java.util.List;
 
+import android.os.Bundle;
+import android.util.Pair;
+import android.view.Menu;
+import android.view.Window;
+import android.widget.ListView;
 import br.com.vamodebus.R;
-
 import br.com.vamodebus.adapters.WhereTheBusIsAdapter;
 import br.com.vamodebus.crawler.ParserHtml;
 
+import com.google.analytics.tracking.android.EasyTracker;
 //import com.actionbarsherlock.app.ActionBar;
 //import com.actionbarsherlock.app.SherlockActivity;
 //import com.actionbarsherlock.view.Menu;
 //import com.actionbarsherlock.view.MenuInflater;
-import com.google.analytics.tracking.android.EasyTracker;
-
-import android.os.Bundle;
-import android.util.Pair;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.Window;
-import android.widget.ListView;
 
 /**
  * Created by Eduardo Silva Rosa on 31/05/2013.

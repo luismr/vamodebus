@@ -8,9 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -98,6 +98,7 @@ public class SearchActivity extends BaseListActivity {
 		Log.i("URL_CONEXAO", "http://200.170.170.87/webclient/webclient/arenawebclientiis.dll/synoptic?edcode="
 						+ str + "&btcode=Buscar&route=0");
 
+		//FIXME arrumar o parser urgente!
 		return parserHtml.mapOptions();
 	}
 

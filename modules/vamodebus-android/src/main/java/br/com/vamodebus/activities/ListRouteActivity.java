@@ -2,17 +2,14 @@ package br.com.vamodebus.activities;
 
 import java.util.HashMap;
 
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import br.com.vamodebus.R;
 import br.com.vamodebus.adapters.MapRouteAdapter;
 import br.com.vamodebus.crawler.ParserHtml;
@@ -35,7 +32,8 @@ public class ListRouteActivity extends BaseListActivity{
         
         final Bundle extras = getIntent().getExtras();  
         
-        HashMap<String, String> optionsMapped = (HashMap<String, String>) extras.getSerializable("ROUTES");
+        @SuppressWarnings("unchecked")
+		HashMap<String, String> optionsMapped = (HashMap<String, String>) extras.getSerializable("ROUTES");
         
         MapRouteAdapter mapRouteAdapter = new MapRouteAdapter(optionsMapped, this);
         

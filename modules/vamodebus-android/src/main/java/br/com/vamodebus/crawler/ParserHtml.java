@@ -1,6 +1,9 @@
 package br.com.vamodebus.crawler;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ import android.util.Pair;
  */
 public class ParserHtml {
 
+	//FIXME arrumar isto urgente!
 	public static String url;
 
 	public ParserHtml(String url) {
@@ -115,85 +119,46 @@ public class ParserHtml {
 		try {
 
 			htmlString = htmlString.replace("&Agrave;", "À")
-
 			.replace("&Aacute;", "Á")
-
 			.replace("&Acirc;", "Â")
-
 			.replace("&Atilde;", "Ã")
-
 			.replace("&agrave;", "à")
-
 			.replace("&aacute;", "á")
-
 			.replace("&acirc;", "â")
-
 			.replace("&atilde;", "ã")
-
 			.replace("&Ograve;", "Ò")
-
 			.replace("&Oacute;", "Ó")
-
 			.replace("&Ocirc;", "Ô")
-
 			.replace("&Otilde;", "Õ")
-
 			.replace("&ograve;", "ò")
-
 			.replace("&oacute;", "ó")
-
 			.replace("&ocirc;", "ô")
-
 			.replace("&otilde;", "õ")
-
 			.replace("&Egrave;", "È")
-
 			.replace("&Eacute;", "É")
-
 			.replace("&Ecirc;", "Ê")
-
 			.replace("&egrave;", "è")
-
 			.replace("&eacute;", "é")
-
 			.replace("&ecirc;", "ê")
-
 			.replace("&Igrave;", "Ì")
-
 			.replace("&Iacute;", "Í")
-
 			.replace("&igrave;", "ì")
-
 			.replace("&iacute;", "í")
-
 			.replace("&Ugrave;", "Ù")
-
 			.replace("&Uacute;", "Ú")
-
 			.replace("&ugrave;", "ù")
-
 			.replace("&uacute;", "ú")
-
 			.replace("&Ccedil;", "Ç")
-
 			.replace("&ccedil;", "ç")
-
 			.replace("&circ;", "^")
-
 			.replace("&tilde;", "~")
-
 			.replace("&167;", "º")
-
 			.replace("&166;", "ª");
-
 		} catch (Exception e) {
-
 			e.printStackTrace();
-
 		}
 
 		return htmlString;
-
 	}
 	
 }
