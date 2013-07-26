@@ -22,7 +22,7 @@ public class HistoryDataSource{
     private String[] allColumns = { SqlLiteHelper.COLUMN_ID,
         SqlLiteHelper.CODE,
         SqlLiteHelper.NAME,
-        SqlLiteHelper.NUMBER_ACCESS};
+        };
 
     public HistoryDataSource(Context context){
         dbHelper = new SqlLiteHelper(context);
@@ -42,7 +42,6 @@ public class HistoryDataSource{
         value.put(SqlLiteHelper.COLUMN_ID,favoriteRoute.getId());
         value.put(SqlLiteHelper.CODE,favoriteRoute.getCode());
         value.put(SqlLiteHelper.NAME,favoriteRoute.getName());
-        value.put(SqlLiteHelper.NUMBER_ACCESS,favoriteRoute.getAccesNumber());
         database.insert(SqlLiteHelper.TABLE_HISTORY,null,value);
     }
 
@@ -69,10 +68,10 @@ public class HistoryDataSource{
     }
 
     private History cursorToFavoriteRoute(Cursor cursor){
-        History favoriteRoute = new History();
-        favoriteRoute.setId(cursor.getString(0));
-        favoriteRoute.setCode(cursor.getString(1));
-        favoriteRoute.setName(cursor.getString(2));
-        return favoriteRoute;
+        History history = new History();
+        history.setId(cursor.getString(0));
+        history.setCode(cursor.getString(1));
+        history.setName(cursor.getString(2));
+        return history;
     }
 }

@@ -8,7 +8,7 @@ public class History {
     private String id;
     private String code;
     private String name;
-    private String accesNumber;
+    
 
     public String getId() {
         return id;
@@ -32,14 +32,6 @@ public class History {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAccesNumber() {
-        return accesNumber;
-    }
-
-    public void setAccesNumber(String accesNumber) {
-        this.accesNumber = accesNumber;
     }
 
     @Override

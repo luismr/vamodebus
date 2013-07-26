@@ -9,6 +9,7 @@ public class FavoriteRoute {
     private String id;
     private String code;
     private String name;
+	private int accesNumber;
 
     public String getId() {
         return id;
@@ -33,4 +34,12 @@ public class FavoriteRoute {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public int getAccesNumber() {
+		return accesNumber;
+	}
+
+	public void setAccesNumber(int accesNumber) {
+		this.accesNumber = accesNumber;
+	}
 }

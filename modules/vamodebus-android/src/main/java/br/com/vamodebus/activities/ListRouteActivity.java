@@ -13,7 +13,9 @@ import android.widget.TextView;
 import br.com.vamodebus.R;
 import br.com.vamodebus.adapters.MapRouteAdapter;
 import br.com.vamodebus.crawler.ParserHtml;
+import br.com.vamodebus.dao.FavoriteRouteDataSource;
 import br.com.vamodebus.dao.HistoryDataSource;
+import br.com.vamodebus.model.FavoriteRoute;
 import br.com.vamodebus.model.History;
 
 import com.google.analytics.tracking.android.EasyTracker;
@@ -60,13 +62,29 @@ public class ListRouteActivity extends BaseListActivity{
                 History history = new History();
                 history.setId(v.getTag().toString());
                 history.setName(nameRoute.getText().toString());
-                history.setAccesNumber("1");
                 history.setCode("0");
                 
                 HistoryDataSource hDS = new HistoryDataSource(getApplicationContext());
                 hDS.open();
                 hDS.add(history);
                 hDS.close();
+                
+                FavoriteRouteDataSource fds = new FavoriteRouteDataSource(getApplicationContext());
+                fds.open();
+                
+                FavoriteRoute fr = fds.getFavoriteRouteById(v.getTag().toString());
+                
+                if(fr == null){
+                	fr = new FavoriteRoute();
+                	fr.setId(v.getTag().toString());
+                	fr.setName(nameRoute.getText().toString());
+                	fr.setCode("0");
+                	fr.setAccesNumber(1);
+                	fds.add(fr);
+                }else{
+                	fds.incrementAccesNumber(fr.getId(), fr.getAccesNumber()+1);
+                }
+                fds.close();
 
                 new Thread(new Runnable() {
                     @Override

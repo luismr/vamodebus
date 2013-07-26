@@ -22,20 +22,20 @@ public class SqlLiteHelper extends SQLiteOpenHelper {
     public static final String VALUE = "value";
 
     private static final String DATABASE_NAME = "commments.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     // Database creation sql statement
     private static final String DATABASE_CREATE_FAVORITE_ROUTE_TABLE = "create table if not exists "
             + TABLE_FAVORITE_ROUTE + "(" + COLUMN_ID
             + " text primary key , " + CODE
             + " text not null ," + NAME
+            + " text not null," + NUMBER_ACCESS
             + " text not null);";
 
     private static final String DATABASE_CREATE_HISTORY_TABLE = "create table if not exists "
             + TABLE_HISTORY + "(" + COLUMN_ID
             + " text primary key , " + CODE
             + " text not null ," + NAME
-            + " text not null," + NUMBER_ACCESS
             + " text not null);";
 
     private static final String DATABASE_CREATE_CONFIG_TABLE = "create table if not exists "

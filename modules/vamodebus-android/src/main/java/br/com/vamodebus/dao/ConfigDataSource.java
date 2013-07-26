@@ -63,7 +63,7 @@ public class ConfigDataSource{
         return comments;
     }
     
-    public void updateListRouteConfiguration(long id,String value){
+    public void updateListRouteConfiguration(Long id,String value){
     	ContentValues values = new ContentValues();
     	values.put("value", value);
     	database.update(SqlLiteHelper.TABLE_CONFIG, values, SqlLiteHelper.COLUMN_ID + "=" + id, null);
