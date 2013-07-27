@@ -108,7 +108,7 @@ public final class R {
         public static final int main=0x7f090001;
     }
     public static final class string {
-        public static final int action_settings=0x7f04000d;
+        public static final int action_settings=0x7f04000e;
         public static final int adpremium_noads_label_facebook=0x7f040006;
         public static final int adpremium_noads_label_twitter=0x7f040007;
         public static final int adpremium_noads_label_web=0x7f040008;
@@ -122,20 +122,21 @@ public final class R {
          */
         public static final int br_com_vamodebus_activitys_MainActivity=0x7f040001;
         public static final int br_com_vamodebus_activitys_WhereTheBusIsActivity=0x7f040003;
-        public static final int code_of_route=0x7f04000e;
-        public static final int find=0x7f04000f;
+        public static final int code_of_route=0x7f04000f;
+        public static final int find=0x7f040010;
         /**  Replace placeholder ID with your tracking ID 
          */
         public static final int ga_trackingId=0x7f040000;
-        public static final int info_text1=0x7f040014;
-        public static final int info_text2=0x7f040015;
-        public static final int info_text3=0x7f040016;
-        public static final int info_text4=0x7f040017;
-        public static final int menu_about=0x7f040010;
-        public static final int not_found=0x7f040012;
-        public static final int rout_example=0x7f040013;
+        public static final int info_text1=0x7f040015;
+        public static final int info_text2=0x7f040016;
+        public static final int info_text3=0x7f040017;
+        public static final int info_text4=0x7f040018;
+        public static final int menu_about=0x7f040011;
+        public static final int not_found=0x7f040013;
+        public static final int rout_example=0x7f040014;
         public static final int search_list_lastused=0x7f04000c;
-        public static final int title_activity_main=0x7f040011;
+        public static final int search_list_mostused=0x7f04000d;
+        public static final int title_activity_main=0x7f040012;
     }
     public static final class style {
         /** <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar"/>

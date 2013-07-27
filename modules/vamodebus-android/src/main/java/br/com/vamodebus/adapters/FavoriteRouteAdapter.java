@@ -18,9 +18,9 @@ import br.com.vamodebus.model.History;
 public class FavoriteRouteAdapter  extends BaseAdapter {
 
     Context ctx;
-    List<FavoriteRouteAdapter> favoriteRoutes;
+    List<FavoriteRoute> favoriteRoutes;
 
-    public FavoriteRouteAdapter(Context ctx, List<FavoriteRouteAdapter> favoriteRoutes){
+    public FavoriteRouteAdapter(Context ctx, List<FavoriteRoute> favoriteRoutes){
         this.ctx = ctx;
         this.favoriteRoutes = favoriteRoutes;
     }
@@ -49,7 +49,7 @@ public class FavoriteRouteAdapter  extends BaseAdapter {
         TextView favoriteRouteAccessNumber = (TextView) v.findViewById(R.id.numberAccess);
         FavoriteRoute favoriteRoute = (FavoriteRoute)getItem(position);
         favoriteRouteDescription.setText(favoriteRoute.getName());
-        favoriteRouteAccessNumber.setText(favoriteRoute.getAccesNumber());
+        favoriteRouteAccessNumber.setText("( " + favoriteRoute.getAccesNumber() + " +)");
         v.setTag(favoriteRoute.getId());
 
         return v;

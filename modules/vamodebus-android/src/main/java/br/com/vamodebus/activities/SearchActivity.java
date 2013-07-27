@@ -16,9 +16,14 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import br.com.vamodebus.R;
+import br.com.vamodebus.adapters.FavoriteRouteAdapter;
 import br.com.vamodebus.adapters.HistoryAdapter;
 import br.com.vamodebus.crawler.ParserHtml;
+import br.com.vamodebus.dao.ConfigDataSource;
+import br.com.vamodebus.dao.FavoriteRouteDataSource;
 import br.com.vamodebus.dao.HistoryDataSource;
+import br.com.vamodebus.model.Config;
+import br.com.vamodebus.model.FavoriteRoute;
 import br.com.vamodebus.model.History;
 
 import com.google.analytics.tracking.android.EasyTracker;
@@ -74,15 +79,31 @@ public class SearchActivity extends BaseListActivity {
     protected void onStart() {
     	super.onStart();
     	EasyTracker.getInstance().activityStart(this);
+    	
+    	ConfigDataSource cds = new ConfigDataSource(this);
+    	cds.open();
+    	Config config = cds.getListRouteConfig();
+    	cds.close();
 
-        HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
-        historyDataSource.open();
-
-        List<History> l = historyDataSource.getAllHistory();
-        HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
-
-        setListAdapter(dataAdapter);
-        historyDataSource.close();
+    	if(config == null || config.getValue().equals("history")){
+	        HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
+	        historyDataSource.open();
+	        List<History> l = historyDataSource.getAllHistory();
+	        HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
+	   		setListAdapter(dataAdapter);
+	        historyDataSource.close();
+    	}else{
+    		TextView t = (TextView) findViewById(R.id.seacrhList);
+    		t.setText(R.string.search_list_mostused);
+	        FavoriteRouteDataSource favoriteRouteDataSource = new FavoriteRouteDataSource(this);
+	        favoriteRouteDataSource.open();
+	        
+	        List<FavoriteRoute> lfr = favoriteRouteDataSource.getAllFavoriteRoutes();
+	        FavoriteRouteAdapter fra = new FavoriteRouteAdapter(this, lfr);
+	        setListAdapter(fra);
+	        
+	        favoriteRouteDataSource.close();
+    	}
     }
     
     @Override

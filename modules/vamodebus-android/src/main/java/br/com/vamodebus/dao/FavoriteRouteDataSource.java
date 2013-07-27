@@ -21,6 +21,7 @@ public class FavoriteRouteDataSource {
     private SQLiteDatabase database;
     private SqlLiteHelper dbHelper;
     private String[] allColumns = { SqlLiteHelper.COLUMN_ID,
+    		SqlLiteHelper.CODE,
             SqlLiteHelper.NAME,
             SqlLiteHelper.NUMBER_ACCESS};
 

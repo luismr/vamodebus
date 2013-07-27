@@ -9,13 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="lalalalal"
-        android:padding="2dip" />
+        android:padding="2dip" 
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/numberAccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="lalal"
-        android:padding="2dip" />
+        android:padding="2dip" 
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>

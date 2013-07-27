@@ -47,13 +47,6 @@ public class ListRouteActivity extends BaseListActivity{
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, final View v, int position,long id) {
-				//FIXME devemos tirar este código?
-				/*				
-				Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
-				intent.putExtra("ROUTE", extras.getString("ROUTE"));
-				intent.putExtra("IDROUTE", v.getTag().toString());
-				startActivity(intent);
-				*/
 
                 final ProgressDialog myDialog = ProgressDialog.show( ListRouteActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
 
