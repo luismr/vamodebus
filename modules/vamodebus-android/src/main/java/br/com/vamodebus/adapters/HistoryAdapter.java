@@ -44,7 +44,7 @@ public class HistoryAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.hitory_row, null);
 
-        TextView historyDescription = (TextView) v.findViewById(R.id.textHistory);
+        TextView historyDescription = (TextView) v.findViewById(R.id.routeName);
         History history = (History)getItem(position);
         historyDescription.setText(history.getName());
         v.setTag(history.getId());

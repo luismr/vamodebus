@@ -140,7 +140,7 @@ public class SearchActivity extends BaseListActivity {
             public void run() {
                 Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
 
-                TextView historyDescription = (TextView) v.findViewById(R.id.textHistory);
+                TextView historyDescription = (TextView) v.findViewById(R.id.routeName);
 
                 intent.putExtra("ROUTES", findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString()));
 
