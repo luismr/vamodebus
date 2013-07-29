@@ -149,7 +149,9 @@
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_margin="@dimen/padding_medium" 
+            android:layout_margin="@dimen/padding_medium"
+            android:background="@android:color/white" 
+            android:visibility="invisible"
             />
 
     </LinearLayout>

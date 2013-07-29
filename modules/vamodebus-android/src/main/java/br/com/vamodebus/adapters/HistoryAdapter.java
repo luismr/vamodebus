@@ -42,7 +42,7 @@ public class HistoryAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.hitory_row, null);
+        View v = inflater.inflate(R.layout.search_row_history, null);
 
         TextView historyDescription = (TextView) v.findViewById(R.id.routeName);
         History history = (History)getItem(position);

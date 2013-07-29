@@ -8,16 +8,18 @@
         android:id="@+id/routeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lalalalal"
-        android:padding="2dip" 
-        android:textColor="@android:color/white"/>
+        android:padding="2dip"        
+        android:textSize="10sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/numberAccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lalal"
         android:padding="2dip" 
-        android:textColor="@android:color/white"/>
+       	android:textSize="10sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
 
 </LinearLayout>

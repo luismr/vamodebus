@@ -47,9 +47,9 @@ public class SearchActivity extends BaseListActivity {
         
         setContentView(R.layout.search); 
 
-        ImageButton buttonFindRoute = (ImageButton) findViewById(R.id.button_submit_code_of_route);
-
         final EditText textView = (EditText) findViewById(R.id.edit_text_code_of_route);
+        
+        final ImageButton buttonFindRoute = (ImageButton) findViewById(R.id.button_submit_code_of_route);
         buttonFindRoute.setOnClickListener(new OnClickListener(){
 
 			@Override  
@@ -68,9 +68,6 @@ public class SearchActivity extends BaseListActivity {
 						myDialog.dismiss();
 					}
 				}).start();
-				
-				
-				
 			}
         });
     }
@@ -78,23 +75,31 @@ public class SearchActivity extends BaseListActivity {
     @Override
     protected void onStart() {
     	super.onStart();
+    	
     	EasyTracker.getInstance().activityStart(this);
     	
     	ConfigDataSource cds = new ConfigDataSource(this);
     	cds.open();
+
     	Config config = cds.getListRouteConfig();
     	cds.close();
 
-    	if(config == null || config.getValue().equals("history")){
-	        HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
-	        historyDataSource.open();
+    	int listRouteHelperList = -1;
+
+    	if(config == null || config.getValue().equals("history")) {
+    		listRouteHelperList = R.string.search_list_lastused;
+    		
+    		HistoryDataSource historyDataSource = new HistoryDataSource(getApplicationContext());
+    		historyDataSource.open();
+	        
 	        List<History> l = historyDataSource.getAllHistory();
 	        HistoryAdapter dataAdapter = new HistoryAdapter(this,l);
 	   		setListAdapter(dataAdapter);
+	   		
 	        historyDataSource.close();
-    	}else{
-    		TextView t = (TextView) findViewById(R.id.seacrhList);
-    		t.setText(R.string.search_list_mostused);
+    	} else {
+    		listRouteHelperList = R.string.search_list_mostused;
+    		
 	        FavoriteRouteDataSource favoriteRouteDataSource = new FavoriteRouteDataSource(this);
 	        favoriteRouteDataSource.open();
 	        
@@ -104,6 +109,18 @@ public class SearchActivity extends BaseListActivity {
 	        
 	        favoriteRouteDataSource.close();
     	}
+    	
+		TextView t = (TextView) findViewById(R.id.seacrhList);
+		t.setText(listRouteHelperList);
+		
+		int listRouteIsVisible = View.INVISIBLE;
+		
+		if (getListAdapter().getCount() > 0) {
+			listRouteIsVisible = View.VISIBLE;
+		}
+		
+		ListView view = (ListView) findViewById(android.R.id.list);
+		view.setVisibility(listRouteIsVisible);
     }
     
     @Override
@@ -143,9 +160,9 @@ public class SearchActivity extends BaseListActivity {
                 TextView historyDescription = (TextView) v.findViewById(R.id.routeName);
 
                 intent.putExtra("ROUTES", findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString()));
-
                 findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString());
                 startActivity(intent);
+                
                 myDialog.dismiss();
             }
         }).start();

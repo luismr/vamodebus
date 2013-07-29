@@ -43,7 +43,7 @@ public class FavoriteRouteAdapter  extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.row_favorite_route, null);
+        View v = inflater.inflate(R.layout.search_row_favorite, null);
 
         TextView favoriteRouteDescription = (TextView) v.findViewById(R.id.routeName);
         TextView favoriteRouteAccessNumber = (TextView) v.findViewById(R.id.numberAccess);
