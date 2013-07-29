@@ -18,13 +18,21 @@
     
     <string name="where_is_the_bus_query">Linha:</string>
 
+    <string name="config_label_helppers_available">Assistetes de Pesquisa disponíveis:</string>
+    <string name="config_radio_label_history">Últimas rotas pesquisadas</string>
+    <string name="config_radio_label_favorites">Mais pesquisadas</string>
+    <string name="config_button_label_cleandata">Limpar Dados Pesquisa</string>
+    <string name="config_msg_history">Assistente de Pesquisa Histórico foi ativado!</string>
+    <string name="config_msg_favorites">Assistente de Pesquisa Mais Utilizadas foi ativado!</string>
+    <string name="config_msg_cleandata">Dados de Pesquisa foram apagados com sucesso!</string>
+
     <string name="not_found">Dados indisponíveis</string>
     
-    <string name="action_settings">Configurações</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_about">Sobre</string>
     
     <string name="code_of_route">Linha: </string>
     <string name="find">Buscar</string>
-    <string name="menu_about">Info</string>
     <string name="title_activity_main">Vamo de Bus!</string>
     <string name="rout_example">Ex:T131</string>
     <string name="info_text1">Este aplicativo foi desenvolvido por Eduardo Silva Rosa com intuito de auxiliar os usuários de onibus da cidade de Uberlandia. </string>

@@ -3,6 +3,8 @@ package br.com.vamodebus.activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.Toast;
 import br.com.vamodebus.R;
@@ -14,89 +16,90 @@ import br.com.vamodebus.model.Config;
  */
 public class ConfigActivity extends Activity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.config);
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		// set window to be full screen
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Config config = new Config();
+		setContentView(R.layout.config);
 
-        config.setName("listRoute");
-        config.setValue("history");
+		Config config = new Config();
 
-        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
-        configDataSource.open();
-        if(configDataSource.getListRouteConfig() == null){
-            configDataSource.add(config);
-        }
-        configDataSource.close();
+		config.setName("listRoute");
+		config.setValue("history");
 
-    }
+		ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+		configDataSource.open();
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+		if (configDataSource.getListRouteConfig() == null) {
+			configDataSource.add(config);
+		}
 
-        Config config = getConfigFromDB();
+		configDataSource.close();
+	}
 
-        RadioButton historyRadio = (RadioButton) findViewById(R.id.radioHistory);
-        RadioButton favoriteRadio = (RadioButton) findViewById(R.id.radioPrefer);
-        if(config.getValue().equals("history")){
-            historyRadio.setChecked(true);
-            //Toast.makeText(this,"History",Toast.LENGTH_SHORT).show();
-        }else{
-            favoriteRadio.setChecked(true);
-            //Toast.makeText(this,"Prefer",Toast.LENGTH_SHORT).show();
-        }
+	@Override
+	protected void onStart() {
+		super.onStart();
 
-    }
-    
-    public Config getConfigFromDB(){
-        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
-        configDataSource.open();
-        Config config = configDataSource.getListRouteConfig();
-        configDataSource.close();
-        return config;
-    }
-    
-    public void updateConfigInDB(String value){
-        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
-        configDataSource.open();
-        Config config = configDataSource.getListRouteConfig();
-        configDataSource.updateListRouteConfiguration(config.getId(),value);
-        configDataSource.close();
-    }
+		Config config = getConfigFromDB();
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
+		RadioButton historyRadio = (RadioButton) findViewById(R.id.radioHistory);
+		RadioButton favoriteRadio = (RadioButton) findViewById(R.id.radioPrefer);
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radioHistory:
-                if (checked){
-                	updateConfigInDB("history");
-                }
-                    break;
-            case R.id.radioPrefer:
-                if (checked){
-                	updateConfigInDB("prefer");
-                }
-                break;
-        }
-    }
-    
-    public void cleanListDB(View v){
-        ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
-        configDataSource.open();
-        configDataSource.deleteListDB();
-        configDataSource.close();
-        Toast.makeText(this, "Dados excluídos", Toast.LENGTH_SHORT).show();
-    }
+		if (config.getValue().equals("history")) {
+			historyRadio.setChecked(true);
+		} else {
+			favoriteRadio.setChecked(true);
+		}
+	}
 
+	public Config getConfigFromDB() {
+		ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+		configDataSource.open();
+		Config config = configDataSource.getListRouteConfig();
+		configDataSource.close();
 
+		return config;
+	}
 
+	public void updateConfigInDB(String value) {
+		ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+		configDataSource.open();
+		Config config = configDataSource.getListRouteConfig();
+		configDataSource.updateListRouteConfiguration(config.getId(), value);
+		configDataSource.close();
+	}
 
+	public void onRadioButtonClicked(View view) {
+		boolean checked = ((RadioButton) view).isChecked();
+		
+		switch (view.getId()) {
+		case R.id.radioHistory:
+			if (checked) {
+				updateConfigInDB("history");
+				Toast.makeText(this,getResources().getString(R.string.config_msg_history),Toast.LENGTH_SHORT).show();
+			}
+			break;
+		case R.id.radioPrefer:
+			if (checked) {
+				updateConfigInDB("prefer");
+				Toast.makeText(this,getResources().getString(R.string.config_msg_favorites),Toast.LENGTH_SHORT).show();
+			}
+			break;
+		}
+	}
 
+	public void onClickCleanDataButton(View v) {
+		ConfigDataSource configDataSource = new ConfigDataSource(getApplicationContext());
+		configDataSource.open();
+		configDataSource.deleteListDB();
+		configDataSource.close();
+		
+		Toast.makeText(this, getResources().getString(R.string.config_msg_cleandata), Toast.LENGTH_SHORT).show();
+	}
 
 }

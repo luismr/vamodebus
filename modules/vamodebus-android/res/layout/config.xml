@@ -1,53 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <android.widget.ImageView
+            android:id="@+id/logoApp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Configurações"
-            android:id="@+id/textView"
-            android:layout_gravity="left|center_vertical"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo" />
+    </LinearLayout>
 
-    <TextView
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <android.widget.ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Memória de pesquisas"
-            android:id="@+id/textView"
-            android:layout_gravity="left|center_vertical"/>
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/bar" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/config_label_helppers_available"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <android.widget.ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/bar" />
+    </LinearLayout>
 
     <RadioGroup
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
-    <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Histórico"
-                android:id="@+id/radioHistory"
-                android:layout_gravity="left|center_vertical"
-                android:onClick="onRadioButtonClicked"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical" >
 
         <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rotas favoritas"
-                android:id="@+id/radioPrefer"
-                android:layout_gravity="left|center_vertical"
-                android:onClick="onRadioButtonClicked"/>
+            android:id="@+id/radioHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/config_radio_label_history" />
 
+        <RadioButton
+            android:id="@+id/radioPrefer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/config_radio_label_favorites" />
     </RadioGroup>
 
     <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Limpar Histórico/Favoritos"
-            android:id="@+id/button"
-            android:layout_gravity="right|center_vertical"
-            android:onClick="cleanListDB"/>
+        android:id="@+id/cleanDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:onClick="onClickCleanDataButton"
+        android:text="@string/config_button_label_cleandata" />
+
 </LinearLayout>
