@@ -169,7 +169,8 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/adpremium_noads_link_facebook"
             android:padding="5dip"
-            android:src="@drawable/icon_s_facebook" />
+            android:src="@drawable/icon_s_facebook"
+            android:onClick="callFaceBook" />
 
         <ImageView
             android:id="@+id/imgTwitter"
@@ -177,7 +178,8 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/adpremium_noads_link_twitter"
             android:padding="5dip"
-            android:src="@drawable/icon_s_twitter" />
+            android:src="@drawable/icon_s_twitter"
+            android:onClick="callTwitter" />
 
         <ImageView
             android:id="@+id/imgWev"
@@ -185,7 +187,8 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/adpremium_noads_link_web"
             android:padding="5dip"
-            android:src="@drawable/icon_s_site" />
+            android:src="@drawable/icon_s_site"
+            android:onClick="callSite" />
     </LinearLayout>
 
 </LinearLayout>

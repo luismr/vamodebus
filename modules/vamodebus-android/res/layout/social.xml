@@ -33,7 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_x_facebook"
-            android:padding="5dip" android:contentDescription="@string/adpremium_noads_link_facebook"/>
+            android:padding="5dip" android:contentDescription="@string/adpremium_noads_link_facebook"
+            android:onClick="callFaceBook"/>
         
     </LinearLayout>
 
@@ -48,7 +49,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_x_twitter"
                 android:padding="5dip"
-                android:contentDescription="@string/adpremium_noads_link_twitter"/>
+                android:contentDescription="@string/adpremium_noads_link_twitter"
+                android:onClick="callTwitter"/>
 
      </LinearLayout>
 
@@ -62,7 +64,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_x_site"
-                android:padding="5dip" android:contentDescription="@string/adpremium_noads_link_web"/>
+                android:padding="5dip" android:contentDescription="@string/adpremium_noads_link_web"
+                android:onClick="callSite"/>
     </LinearLayout>
 
     <LinearLayout

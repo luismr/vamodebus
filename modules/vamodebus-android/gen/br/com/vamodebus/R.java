@@ -30,6 +30,7 @@ public final class R {
     
          */
         public static final int activity_horizontal_margin=0x7f060003;
+        public static final int activity_vertical_margin=0x7f060004;
         public static final int padding_large=0x7f060002;
         public static final int padding_medium=0x7f060001;
         public static final int padding_small=0x7f060000;
@@ -58,6 +59,7 @@ public final class R {
     }
     public static final class id {
         public static final int ScrollView01=0x7f0a0008;
+        public static final int action_settings=0x7f0a001b;
         public static final int button_submit_code_of_route=0x7f0a0003;
         public static final int cleanDataButton=0x7f0a0007;
         public static final int configuration=0x7f0a001a;
@@ -101,8 +103,10 @@ public final class R {
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
+        public static final int web=0x7f090001;
     }
     public static final class string {
+        public static final int action_settings=0x7f040023;
         public static final int adpremium_noads_label_facebook=0x7f040006;
         public static final int adpremium_noads_label_twitter=0x7f040007;
         public static final int adpremium_noads_label_web=0x7f040008;
@@ -128,6 +132,7 @@ public final class R {
         /**  Replace placeholder ID with your tracking ID 
          */
         public static final int ga_trackingId=0x7f040000;
+        public static final int hello_world=0x7f040024;
         public static final int info_text1=0x7f04001e;
         public static final int info_text2=0x7f04001f;
         public static final int info_text3=0x7f040020;
@@ -140,6 +145,7 @@ public final class R {
         public static final int search_list_lastused=0x7f04000c;
         public static final int search_list_mostused=0x7f04000d;
         public static final int title_activity_main=0x7f04001c;
+        public static final int title_activity_web=0x7f040022;
         public static final int where_is_the_bus_query=0x7f04000f;
     }
     public static final class style {
