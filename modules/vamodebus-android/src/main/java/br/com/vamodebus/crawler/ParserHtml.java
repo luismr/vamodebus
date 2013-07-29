@@ -104,6 +104,44 @@ public class ParserHtml {
 		return listPair;
 	}
 	
+	public static String mapTableToString(String strBuilder) {
+		StringBuilder serialiazed = new StringBuilder();
+		
+		Document document = Jsoup.parse(strBuilder.toString(),"ISO-8859-1");
+		Elements table = document.select("table[ID=table_synoptic]");
+		Elements trs = table.select("tr");
+		
+		int line = 0;
+		
+		for (Element elemens : trs) {
+			Elements tdDesc = elemens.select("td[class=td_desc]");
+			Elements tdCodBus = elemens.select("td[class=td_cod_bus]");
+			
+			for (Element td : tdDesc) {
+				String cell = td.select("a").html().replace("\n", "");
+				
+				if (cell.trim().length() >  0) {
+					if (line > 0) {
+						serialiazed.append("\n");
+					}
+					
+					serialiazed.append(convertTagsHTMLCaracteres(cell));
+					serialiazed.append(":");
+					
+					if (tdCodBus.isEmpty()) {
+						serialiazed.append(Boolean.FALSE);
+					} else {
+						serialiazed.append(Boolean.TRUE);
+					}
+					
+					line++;
+				}
+			}
+		}
+		
+		return serialiazed.toString();
+	}
+	
 	public static InputStream getInputStreamFromWeb() throws IOException{
 		URL url1 = new URL(url);
 		URLConnection conexao = url1.openConnection();

@@ -14,13 +14,18 @@
     <string name="search_list_lastused">Últimas Consultas:</string>
     <string name="search_list_mostused">Mais Utilizadas:</string>
     
+    <string name="list_route_available_results">Rotas disponíveis:</string>
+    
+    <string name="where_is_the_bus_query">Linha:</string>
+
+    <string name="not_found">Dados indisponíveis</string>
+    
     <string name="action_settings">Configurações</string>
     
     <string name="code_of_route">Linha: </string>
     <string name="find">Buscar</string>
     <string name="menu_about">Info</string>
     <string name="title_activity_main">Vamo de Bus!</string>
-    <string name="not_found">Dados indisponíveis</string>
     <string name="rout_example">Ex:T131</string>
     <string name="info_text1">Este aplicativo foi desenvolvido por Eduardo Silva Rosa com intuito de auxiliar os usuários de onibus da cidade de Uberlandia. </string>
     <string name="info_text2">Para buscar a rota basta digitar o codigo da rota(ex: T131) ou parte do código (ex: T) e tocar no botão buscar.</string>

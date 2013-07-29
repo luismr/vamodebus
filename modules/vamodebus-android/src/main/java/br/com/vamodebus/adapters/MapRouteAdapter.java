@@ -54,7 +54,7 @@ public class MapRouteAdapter extends BaseAdapter{
         View v;
         
         LayoutInflater inflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.row_route, null);
+        v = inflater.inflate(R.layout.list_route_row, null);
         
         TextView nameRoute = (TextView) v.findViewById(R.id.name_route);
         nameRoute.setText(value);

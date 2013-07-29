@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".activities.ListRouteActivity"></activity>
-        <activity android:name=".activities.WhereTheBusIsActivity"></activity>
+        <activity android:name=".activities.ListRoutesActivity"></activity>
+        <activity android:name=".activities.WhereIsTheBusActivity"></activity>
         <activity android:name=".activities.SearchActivity"/>
         <activity android:name=".activities.InfoActivity"/>
         <activity android:name=".activities.SocialActivity"/>

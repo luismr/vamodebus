@@ -1,12 +1,18 @@
 package br.com.vamodebus.activities;
 
 import java.util.HashMap;
+import java.util.List;
+
+import javax.crypto.spec.OAEPParameterSpec;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.ListPreference;
+import android.util.Pair;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,12 +30,17 @@ import com.google.analytics.tracking.android.EasyTracker;
  * Created by Eduardo Silva Rosa on 31/05/2013.
  * mail to: edus.silva.rosa@gmail.com
  */
-public class ListRouteActivity extends BaseListActivity{
+public class ListRoutesActivity extends BaseListActivity{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        // set window to be full screen 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+                                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.list_routes);
         
         final Bundle extras = getIntent().getExtras();  
@@ -39,18 +50,21 @@ public class ListRouteActivity extends BaseListActivity{
         
         MapRouteAdapter mapRouteAdapter = new MapRouteAdapter(optionsMapped, this);
         
+        if (mapRouteAdapter.getCount() == 1) {
+        	//TODO Forward Automático
+        }
+        
         ListView listRoutes = (ListView) findViewById(android.R.id.list);
-        
+
         listRoutes.setAdapter(mapRouteAdapter);
-        
         listRoutes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-			@Override
+        	@Override
 			public void onItemClick(AdapterView<?> parent, final View v, int position,long id) {
 
-                final ProgressDialog myDialog = ProgressDialog.show( ListRouteActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
+                final ProgressDialog myDialog = ProgressDialog.show( ListRoutesActivity.this, "Aguarde..." , " Buscando Rotas. Por Favor Aguarde ... ", true);
 
-                TextView nameRoute = (TextView) v.findViewById(R.id.name_route);
+                final TextView nameRoute = (TextView) v.findViewById(R.id.name_route);
 
                 History history = new History();
                 history.setId(v.getTag().toString());
@@ -67,23 +81,29 @@ public class ListRouteActivity extends BaseListActivity{
                 
                 FavoriteRoute fr = fds.getFavoriteRouteById(v.getTag().toString());
                 
-                if(fr == null){
+                if (fr == null) {
                 	fr = new FavoriteRoute();
                 	fr.setId(v.getTag().toString());
                 	fr.setName(nameRoute.getText().toString());
                 	fr.setCode("0");
                 	fr.setAccesNumber(1);
                 	fds.add(fr);
-                }else{
+                } else {
                 	fds.incrementAccesNumber(fr.getId(), fr.getAccesNumber()+1);
                 }
+                
                 fds.close();
 
                 new Thread(new Runnable() {
+                	
                     @Override
                     public void run() {
-                        Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
-                        intent.putExtra("ROUTES", findRoutes(extras.getString("ROUTE"),v.getTag().toString()));
+                        Intent intent = new Intent(getApplicationContext(),WhereIsTheBusActivity.class);
+                        
+                        String routes = ParserHtml.mapTableToString(findRoutes(extras.getString("ROUTE"),v.getTag().toString()));
+                        
+                        intent.putExtra("QUERY", nameRoute.getText().toString());
+                        intent.putExtra("ROUTES", routes);
 
                         startActivity(intent);
                         myDialog.dismiss();

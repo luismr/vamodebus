@@ -18,12 +18,12 @@ import br.com.vamodebus.R;
  * Created by Eduardo Silva Rosa on 31/05/2013.
  * mail to: edus.silva.rosa@gmail.com
  */
-public class WhereTheBusIsAdapter extends BaseAdapter{
+public class WhereIsTheBusAdapter extends BaseAdapter{
 	
 	Context ctx;
 	List<Pair<String, Boolean>> listPair;
 	
-	public WhereTheBusIsAdapter(Context ctx, List<Pair<String, Boolean>> listPair){
+	public WhereIsTheBusAdapter(Context ctx, List<Pair<String, Boolean>> listPair){
 		this.ctx = ctx;
 		this.listPair = listPair;
 	}
@@ -46,7 +46,7 @@ public class WhereTheBusIsAdapter extends BaseAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) this.ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.row_bus_stop, null);
+        View v = inflater.inflate(R.layout.where_is_the_bus_row, null);
         
         ImageView imageView = (ImageView) v.findViewById(R.id.image_bus);
         TextView nameRoute = (TextView) v.findViewById(R.id.name_bus_stop);

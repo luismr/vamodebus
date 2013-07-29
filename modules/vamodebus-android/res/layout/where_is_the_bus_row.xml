@@ -15,11 +15,13 @@
 
     <TextView
         android:id="@+id/name_bus_stop"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/image_bus"
+        android:layout_toLeftOf="@+id/image_bus"
         android:padding="2dp"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@id/image_bus"
-        android:text="Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+        android:text="Teste"
+        android:textStyle="bold"
+        android:textSize="10sp" />
 
 </RelativeLayout>

@@ -60,7 +60,7 @@ public class SearchActivity extends BaseListActivity {
 				new Thread(new Runnable() {
 					@Override
 					public void run() {
-						Intent intent = new Intent(getApplicationContext(),ListRouteActivity.class);
+						Intent intent = new Intent(getApplicationContext(),ListRoutesActivity.class);
 						
 						intent.putExtra("ROUTE", textView.getText().toString());
 						intent.putExtra("ROUTES", findRoutes(textView.getText().toString()));
@@ -155,7 +155,7 @@ public class SearchActivity extends BaseListActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(),WhereTheBusIsActivity.class);
+                Intent intent = new Intent(getApplicationContext(),WhereIsTheBusActivity.class);
 
                 TextView historyDescription = (TextView) v.findViewById(R.id.routeName);
 
