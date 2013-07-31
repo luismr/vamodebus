@@ -28,9 +28,9 @@
         <activity android:name="br.com.vamodebus.activities.WhereIsTheBusActivity" >
         </activity>
         <activity android:name="br.com.vamodebus.activities.SearchActivity" />
-        <activity android:name="br.com.vamodebus.activities.InfoActivity" />
+        <activity android:name="br.com.vamodebus.activities.AboutActivity" />
         <activity android:name="br.com.vamodebus.activities.SocialActivity" />
-        <activity android:name="br.com.vamodebus.activities.ConfigActivity" />
+        <activity android:name="br.com.vamodebus.activities.SettingsActivity" />
     </application>
 
 </manifest>

@@ -58,55 +58,62 @@ public final class R {
         public static final int yelow_bus=0x7f020013;
     }
     public static final class id {
-        public static final int ScrollView01=0x7f0a0008;
-        public static final int action_settings=0x7f0a001b;
-        public static final int button_submit_code_of_route=0x7f0a0003;
-        public static final int cleanDataButton=0x7f0a0007;
-        public static final int configuration=0x7f0a001a;
-        public static final int edit_text_code_of_route=0x7f0a0002;
-        public static final int image_bus=0x7f0a0017;
-        public static final int image_yelow_bus=0x7f0a0000;
-        public static final int imgFace=0x7f0a000f;
-        public static final int imgTwitter=0x7f0a0010;
-        public static final int imgWeb=0x7f0a0014;
-        public static final int imgWev=0x7f0a0011;
-        public static final int label_code_of_route=0x7f0a0001;
-        public static final int logoApp=0x7f0a0004;
-        public static final int logoSplash=0x7f0a0016;
-        public static final int menu_settings=0x7f0a0019;
-        public static final int name_bus_stop=0x7f0a0018;
-        public static final int name_route=0x7f0a000d;
-        public static final int numberAccess=0x7f0a0013;
-        public static final int radioHistory=0x7f0a0005;
-        public static final int radioPrefer=0x7f0a0006;
-        public static final int routeName=0x7f0a0012;
-        public static final int seacrhList=0x7f0a000e;
-        public static final int socialLoadingProgressBar=0x7f0a0015;
-        public static final int text_about1=0x7f0a0009;
-        public static final int text_about2=0x7f0a000a;
-        public static final int text_about3=0x7f0a000b;
-        public static final int text_about4=0x7f0a000c;
+        public static final int ScrollView01=0x7f0a000d;
+        public static final int button_submit_code_of_route=0x7f0a000c;
+        public static final int cleanDataButton=0x7f0a0019;
+        public static final int edit_text_code_of_route=0x7f0a000b;
+        public static final int footer=0x7f0a0005;
+        public static final int imageView1=0x7f0a0000;
+        public static final int imageView2=0x7f0a0003;
+        public static final int image_bus=0x7f0a001d;
+        public static final int image_yelow_bus=0x7f0a0009;
+        public static final int imgFace=0x7f0a0006;
+        public static final int imgTwitter=0x7f0a0007;
+        public static final int imgWeb=0x7f0a001a;
+        public static final int imgWev=0x7f0a0008;
+        public static final int label_code_of_route=0x7f0a000a;
+        public static final int logo=0x7f0a0001;
+        public static final int logoApp=0x7f0a0013;
+        public static final int logoSplash=0x7f0a001c;
+        public static final int menu_about=0x7f0a0021;
+        public static final int menu_help=0x7f0a0020;
+        public static final int menu_settings=0x7f0a001f;
+        public static final int name_bus_stop=0x7f0a001e;
+        public static final int name_route=0x7f0a0012;
+        public static final int numberAccess=0x7f0a0016;
+        public static final int radioHistory=0x7f0a0017;
+        public static final int radioPrefer=0x7f0a0018;
+        public static final int routeName=0x7f0a0015;
+        public static final int scrollView1=0x7f0a0004;
+        public static final int seacrhList=0x7f0a0014;
+        public static final int socialLoadingProgressBar=0x7f0a001b;
+        public static final int textView1=0x7f0a0002;
+        public static final int text_about1=0x7f0a000e;
+        public static final int text_about2=0x7f0a000f;
+        public static final int text_about3=0x7f0a0010;
+        public static final int text_about4=0x7f0a0011;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int config=0x7f030001;
-        public static final int info=0x7f030002;
+        public static final int about=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int help=0x7f030002;
         public static final int list_route_row=0x7f030003;
         public static final int list_routes=0x7f030004;
         public static final int search=0x7f030005;
         public static final int search_row_favorite=0x7f030006;
         public static final int search_row_history=0x7f030007;
-        public static final int social=0x7f030008;
-        public static final int splash=0x7f030009;
-        public static final int where_is_the_bus=0x7f03000a;
-        public static final int where_is_the_bus_row=0x7f03000b;
+        public static final int settings=0x7f030008;
+        public static final int social=0x7f030009;
+        public static final int splash=0x7f03000a;
+        public static final int where_is_the_bus=0x7f03000b;
+        public static final int where_is_the_bus_row=0x7f03000c;
     }
     public static final class menu {
-        public static final int activity_main=0x7f090000;
-        public static final int web=0x7f090001;
+        public static final int context_menu=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f040023;
+        public static final int about_title=0x7f04001b;
+        public static final int action_settings=0x7f040025;
         public static final int adpremium_noads_label_facebook=0x7f040006;
         public static final int adpremium_noads_label_twitter=0x7f040007;
         public static final int adpremium_noads_label_web=0x7f040008;
@@ -120,7 +127,7 @@ public final class R {
          */
         public static final int br_com_vamodebus_activitys_MainActivity=0x7f040001;
         public static final int br_com_vamodebus_activitys_WhereTheBusIsActivity=0x7f040003;
-        public static final int code_of_route=0x7f04001a;
+        public static final int code_of_route=0x7f04001c;
         public static final int config_button_label_cleandata=0x7f040013;
         public static final int config_label_helppers_available=0x7f040010;
         public static final int config_msg_cleandata=0x7f040016;
@@ -128,24 +135,24 @@ public final class R {
         public static final int config_msg_history=0x7f040014;
         public static final int config_radio_label_favorites=0x7f040012;
         public static final int config_radio_label_history=0x7f040011;
-        public static final int find=0x7f04001b;
+        public static final int find=0x7f04001d;
         /**  Replace placeholder ID with your tracking ID 
          */
         public static final int ga_trackingId=0x7f040000;
-        public static final int hello_world=0x7f040024;
-        public static final int info_text1=0x7f04001e;
-        public static final int info_text2=0x7f04001f;
-        public static final int info_text3=0x7f040020;
-        public static final int info_text4=0x7f040021;
+        public static final int info_text1=0x7f040020;
+        public static final int info_text2=0x7f040021;
+        public static final int info_text3=0x7f040022;
+        public static final int info_text4=0x7f040023;
         public static final int list_route_available_results=0x7f04000e;
         public static final int menu_about=0x7f040019;
+        public static final int menu_help=0x7f04001a;
         public static final int menu_settings=0x7f040018;
         public static final int not_found=0x7f040017;
-        public static final int rout_example=0x7f04001d;
+        public static final int rout_example=0x7f04001f;
         public static final int search_list_lastused=0x7f04000c;
         public static final int search_list_mostused=0x7f04000d;
-        public static final int title_activity_main=0x7f04001c;
-        public static final int title_activity_web=0x7f040022;
+        public static final int title_activity_main=0x7f04001e;
+        public static final int title_activity_web=0x7f040024;
         public static final int where_is_the_bus_query=0x7f04000f;
     }
     public static final class style {

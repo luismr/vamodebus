@@ -21,19 +21,24 @@ public class BaseActivity extends Activity {
 
     @Override
     public boolean onMenuItemSelected(int featureId,MenuItem item) {
-        if(item.getItemId() == R.id.menu_settings){
-            Intent intent = new Intent(getApplicationContext(),InfoActivity.class);
-            startActivity(intent);
-        }else if(item.getItemId() == R.id.configuration){
-            Intent intent = new Intent(getApplicationContext(),ConfigActivity.class);
-            startActivity(intent);
-        }
-        return super.onMenuItemSelected(featureId, item);
+		Intent intent = null;
+		
+		if (item.getItemId() == R.id.menu_about) {
+			intent = new Intent(getApplicationContext(), AboutActivity.class);
+		} else if (item.getItemId() == R.id.menu_settings) {
+			intent = new Intent(getApplicationContext(), SettingsActivity.class);
+		} else if (item.getItemId() == R.id.menu_help) {
+			intent = new Intent(getApplicationContext(), HelpActivity.class);
+		}
+		
+		startActivity(intent);
+		
+		return super.onMenuItemSelected(featureId, item);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        getMenuInflater().inflate(R.menu.context_menu, menu);
         return true;
     }
     
