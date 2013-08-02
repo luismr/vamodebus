@@ -173,7 +173,7 @@
 							<goal>perform</goal>
 						</goals>
 						<configuration>
-							<pomFileName>src/vamodebus-android/pom.xml</pomFileName>
+							<pomFileName>modules/vamodebus-android/pom.xml</pomFileName>
 						</configuration>
 					</execution>
 				</executions>
