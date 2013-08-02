@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/about_label_name"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="@string/about_value_name"
-                    android:textSize="12sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/about_label_package"
@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/about_label_package"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="@string/about_value_package"
-                    android:textSize="12sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/about_label_version"
@@ -110,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/about_label_version"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="@string/about_value_version"
-                    android:textSize="12sp" />
+                    android:textSize="16sp" />
             </RelativeLayout>
 
             <TextView
@@ -132,7 +132,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/about_label_copyright_1"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/about_label_copyright_2"
@@ -141,7 +141,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="@string/about_label_copyright_2"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/about_label_copyright_3"
@@ -150,7 +150,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:text="@string/about_label_copyright_3"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/about_label_company_title"
@@ -160,7 +160,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/about_label_company_title"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -173,7 +173,7 @@
                 android:onClick="callUrl"
                 android:text="@string/about_label_company_url"
                 android:textColor="@color/blue"
-                android:textSize="10sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/about_label_company_email"
@@ -185,7 +185,7 @@
                 android:onClick="callEmail"
                 android:text="@string/about_label_company_email"
                 android:textColor="@color/blue"
-                android:textSize="10sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/about_label_company_pbx"
@@ -197,7 +197,7 @@
                 android:onClick="callPbx"
                 android:text="@string/about_label_company_pbx"
                 android:textColor="@color/blue"
-                android:textSize="10sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 
