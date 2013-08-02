@@ -1,15 +1,10 @@
 package br.com.vamodebus.activities;
 
 import java.util.HashMap;
-import java.util.List;
-
-import javax.crypto.spec.OAEPParameterSpec;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.util.Pair;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
