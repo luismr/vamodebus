@@ -153,10 +153,10 @@
 					</execution>
 				</executions>
 				<configuration>
-					<keystore>${project.basedir}/key/vdb.keystore</keystore>
-					<alias>vdb</alias>
-					<storepass>vdb123</storepass>
-					<keypass>vdb123</keypass>
+					<keystore>${project.basedir}/key/keyStoreAndroid</keystore>
+					<alias>vamodebus</alias>
+					<storepass>haha6519%</storepass>
+					<keypass>haha6519%</keypass>
 					<verbose>true</verbose>
 				</configuration>
 			</plugin>
