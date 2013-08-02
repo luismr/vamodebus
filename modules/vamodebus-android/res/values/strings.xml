@@ -45,12 +45,12 @@
     <string name="about_label_package">Pacote:</string>
     <string name="about_value_package">-- pacote --</string>
     <string name="about_label_copyright_1">Copyright (c) 2013 Eduardo Silva Rosa</string>
-    <string name="about_label_copyright_2">Copyright (c) 2013 Singular Ideas</string>
+    <string name="about_label_copyright_2">Copyright (c) 2013 Luis M. Reis, Matheus N. Mota.</string>
     <string name="about_label_copyright_3">Todos os direitos reservados.</string>
     <string name="about_label_company_title">Singular Ideas</string>
     <string name="about_label_company_url"><u>http://www.singularideas.com.br</u></string>
     <string name="about_label_company_email"><u>falecom@singularideas.com.br</u></string>
-    <string name="about_label_company_pbx"><u>(34) 3221-7779</u></string>
+    <string name="about_label_company_pbx"><u>(34) 3221-7964</u></string>
     
     <string name="code_of_route">Linha: </string>
     <string name="find">Buscar</string>
