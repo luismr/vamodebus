@@ -32,7 +32,7 @@
     <string name="menu_help">Ajuda</string>
     
     <string name="help_title">Ajuda</string>
-    <string name="help_info_1">Este aplicativo foi desenvolvido com intuito de auxiliar os usuários de onibus da cidade de Uberlandia. </string>
+    <string name="help_info_1">Este aplicativo foi desenvolvido com intuito de auxiliar os usuários de ônibus da cidade de Uberlândia. </string>
     <string name="help_info_2">Para <b>buscar</b> a rota basta digitar o codigo da rota <b>(ex: T131)</b> ou parte do código <b>(ex: T)</b> e tocar no botão buscar <b>(lupa)</b>.</string>
     <string name="help_info_3">Conforme a informação passada no campo de busca irá aparecer uma lista contendo as linhas de onibus com o código informado.</string>
     <string name="help_info_4">Para visualizar a localização do onibus basta tocar sobre a linha desejada e aparecerá a lista com os pontos de onibus pertence a linha selecionada indicando em qual dos pontos se encontram os ônibus em trânsito naquele exato momento.</string>

@@ -72,6 +72,7 @@ public final class R {
         public static final int about_value_name=0x7f0a0006;
         public static final int about_value_package=0x7f0a0008;
         public static final int about_value_version=0x7f0a000a;
+        public static final int action_settings=0x7f0a002e;
         public static final int button_submit_code_of_route=0x7f0a0019;
         public static final int cleanDataButton=0x7f0a0025;
         public static final int edit_text_code_of_route=0x7f0a0018;
@@ -123,6 +124,7 @@ public final class R {
     }
     public static final class menu {
         public static final int context_menu=0x7f090000;
+        public static final int web=0x7f090001;
     }
     public static final class string {
         public static final int about_label_company_email=0x7f04002c;
