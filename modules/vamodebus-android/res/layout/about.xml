@@ -45,39 +45,169 @@
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentLeft="true"
+        android:layout_height="match_parent"
         android:layout_below="@+id/imageView2"
-        android:layout_above="@+id/footer"
-        android:background="@android:color/white"
+        android:layout_marginBottom="70dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp" >
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white" >
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" 
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/about_label_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_label_name"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/about_value_name"
+                    android:layout_toRightOf="@+id/about_label_name"
+                    android:layout_alignBaseline="@+id/about_label_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/about_value_name"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/about_label_package"
+                    android:layout_below="@+id/about_label_name"
+                    android:layout_toLeftOf="@+id/about_value_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_label_package"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/about_value_package"
+                    android:layout_toRightOf="@+id/about_label_package"
+                    android:layout_alignBaseline="@+id/about_label_package"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/about_value_package"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/about_label_version"
+                    android:layout_below="@+id/about_label_package"
+                    android:layout_toLeftOf="@+id/about_value_package"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_label_version"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/about_value_version"
+                    android:layout_toRightOf="@+id/about_label_version"
+                    android:layout_alignBaseline="@+id/about_label_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/about_value_version"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/about_label_copyright_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView1"
-                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/about_title"
-                android:textSize="18sp"
+                android:text="@string/about_label_copyright_1"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/about_label_copyright_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/about_label_copyright_2"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/about_label_copyright_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/about_label_copyright_3"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/about_label_company_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/about_label_company_title"
+                android:textSize="15sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/about_label_company_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:onClick="callUrl"
+                android:text="@string/about_label_company_url"
+                android:textColor="@color/blue"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/about_label_company_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:onClick="callEmail"
+                android:text="@string/about_label_company_email"
+                android:textColor="@color/blue"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/about_label_company_pbx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:onClick="callPbx"
+                android:text="@string/about_label_company_pbx"
+                android:textColor="@color/blue"
+                android:textSize="10sp" />
         </LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/footer"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="bottom"
-        android:gravity="bottom|right"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="right"
         android:orientation="horizontal" >
 
         <ImageView

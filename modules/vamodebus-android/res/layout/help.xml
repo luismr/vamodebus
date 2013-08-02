@@ -1,45 +1,140 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/ScrollView01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background" >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/app_short_name"
+        android:padding="15dp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/bar" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/help_title"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/bar" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/help_info_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/help_info_1"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/help_info_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/help_info_2"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/help_info_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/help_info_3"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/help_info_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/help_info_4"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:gravity="right"
+        android:orientation="horizontal" >
 
         <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:src="@drawable/logo_vamo_de_bus"
-                android:layout_gravity="center_horizontal"
-                android:padding="15dp"
-                />
-
-        <TextView
-            android:id="@+id/text_about1"
+            android:id="@+id/imgFace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/info_text1"
-        />
+            android:contentDescription="@string/adpremium_noads_link_facebook"
+            android:onClick="callFaceBook"
+            android:padding="5dip"
+            android:src="@drawable/icon_s_facebook" />
 
-        <TextView
-                android:id="@+id/text_about2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_text2"
-                />
-        <TextView
-                android:id="@+id/text_about3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_text3"
-                />
-        <TextView
-                android:id="@+id/text_about4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_text4"
-                />
+        <ImageView
+            android:id="@+id/imgTwitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/adpremium_noads_link_twitter"
+            android:onClick="callTwitter"
+            android:padding="5dip"
+            android:src="@drawable/icon_s_twitter" />
+
+        <ImageView
+            android:id="@+id/imgWev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/adpremium_noads_link_web"
+            android:onClick="callSite"
+            android:padding="5dip"
+            android:src="@drawable/icon_s_site" />
     </LinearLayout>
-</ScrollView>
+
+</RelativeLayout>

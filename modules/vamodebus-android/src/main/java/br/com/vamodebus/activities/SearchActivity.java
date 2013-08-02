@@ -155,11 +155,13 @@ public class SearchActivity extends BaseListActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(),WhereIsTheBusActivity.class);
-
                 TextView historyDescription = (TextView) v.findViewById(R.id.routeName);
+                String routes = ParserHtml.mapTableToString(findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString()));
+                
+                Intent intent = new Intent(getApplicationContext(),WhereIsTheBusActivity.class);
+                intent.putExtra("QUERY", historyDescription.getText().toString());
+                intent.putExtra("ROUTES", routes);
 
-                intent.putExtra("ROUTES", findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString()));
                 findRoutes(historyDescription.getText().toString().substring(0,4),v.getTag().toString());
                 startActivity(intent);
                 

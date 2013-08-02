@@ -31,16 +31,31 @@
     <string name="menu_about">Sobre</string>
     <string name="menu_help">Ajuda</string>
     
+    <string name="help_title">Ajuda</string>
+    <string name="help_info_1">Este aplicativo foi desenvolvido com intuito de auxiliar os usuários de onibus da cidade de Uberlandia. </string>
+    <string name="help_info_2">Para <b>buscar</b> a rota basta digitar o codigo da rota <b>(ex: T131)</b> ou parte do código <b>(ex: T)</b> e tocar no botão buscar <b>(lupa)</b>.</string>
+    <string name="help_info_3">Conforme a informação passada no campo de busca irá aparecer uma lista contendo as linhas de onibus com o código informado.</string>
+    <string name="help_info_4">Para visualizar a localização do onibus basta tocar sobre a linha desejada e aparecerá a lista com os pontos de onibus pertence a linha selecionada indicando em qual dos pontos se encontram os ônibus em trânsito naquele exato momento.</string>
+    
     <string name="about_title">Sobre</string>
+    <string name="about_label_version">Versão:</string>
+    <string name="about_value_version">-- versão --</string>
+    <string name="about_label_name">Aplicativo:</string>
+    <string name="about_value_name">-- nome --</string>
+    <string name="about_label_package">Pacote:</string>
+    <string name="about_value_package">-- pacote --</string>
+    <string name="about_label_copyright_1">Copyright (c) 2013 Eduardo Silva Rosa</string>
+    <string name="about_label_copyright_2">Copyright (c) 2013 Singular Ideas</string>
+    <string name="about_label_copyright_3">Todos os direitos reservados.</string>
+    <string name="about_label_company_title">Singular Ideas</string>
+    <string name="about_label_company_url"><u>http://www.singularideas.com.br</u></string>
+    <string name="about_label_company_email"><u>falecom@singularideas.com.br</u></string>
+    <string name="about_label_company_pbx"><u>(34) 3221-7779</u></string>
     
     <string name="code_of_route">Linha: </string>
     <string name="find">Buscar</string>
     <string name="title_activity_main">Vamo de Bus!</string>
     <string name="rout_example">Ex:T131</string>
-    <string name="info_text1">Este aplicativo foi desenvolvido por Eduardo Silva Rosa com intuito de auxiliar os usuários de onibus da cidade de Uberlandia. </string>
-    <string name="info_text2">Para buscar a rota basta digitar o codigo da rota(ex: T131) ou parte do código (ex: T) e tocar no botão buscar.</string>
-    <string name="info_text3"> Conforme a informação passada no campo de busca irá aparecer uma lista contendo as linhas de onibus com o código informado.</string>
-    <string name="info_text4">Para visualizar a localização do onibus basta tocar sobre a linha desejada e aparecerá a lista com os pontos de onibus peretence a linha selecionada. As linhas descatada indicam a localização do onibus.</string>
     <string name="title_activity_web">WebActivity</string>
 
     <string name="action_settings">Settings</string>
